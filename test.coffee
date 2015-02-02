@@ -1,6 +1,8 @@
 github = require('octonode');
 require('shelljs/global');
 
+exec 'git diff'
+
 exec 'git add .', (code)->
   if code is not 0
     console.log "Error: Git add failed" 
