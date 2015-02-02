@@ -9,6 +9,10 @@ exec 'git add .', (code)->
     if code is not 0
       console.log "Error: Git commit failed" 
       exit 1
+    exec 'git push origin master', (code)->
+      if code is not 0
+        console.log "Error: Git push failed" 
+        exit 1
 
 # if (!which('git')) {
 #   echo('Sorry, this script requires git');
