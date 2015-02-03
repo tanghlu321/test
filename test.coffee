@@ -1,40 +1,37 @@
 github = require('octonode');
 require('shelljs/global');
 
-# exec 'git add .', (code)->
-#   if code is not 0
-#     console.log "Error: Git add failed" 
-#     exit 1
-#   exec 'git commit -m "change"', (code)->
-#     if code is not 0
-#       console.log "Error: Git commit failed" 
-#       exit 1
-#     exec 'git push origin master', (code)->
-#       if code is not 0
-#         console.log "Error: Git push failed" 
-#         exit 1
 
-# if (!which('git')) {
-#   echo('Sorry, this script requires git');
-#   exit(1);
-# }
-if (exec 'git add .').code != 0
-  echo 'Error: Git commit failed'
-  exit 1
-else 
-  console.log "git add succeeded"
 
-if (exec 'git commit -am "Auto-commit"').code != 0
-  echo 'Error: Git commit failed'
-  exit 1
-else
-  console.log "git commit succeeded"
+exec 'git pull origin master', (err)->
+  console.log err
 
-if (exec 'git push origin master').code != 0
-  console.log "Error: Git push failed"
-  exit 1
-else 
-  console.log "git push succeeded"
+# if (exec 'git add .').code != 0
+#   echo 'Error: Git commit failed'
+#   exit 1
+# else 
+#   console.log "git add succeeded"
+
+# if (exec 'git commit -am "Auto-commit"').code != 0
+#   echo 'Error: Git commit failed'
+#   exit 1
+# else
+#   console.log "git commit succeeded"
+
+# if (exec 'git push origin master').code != 0
+#   console.log "Error: Git push failed"
+#   exit 1
+# else 
+#   console.log "git push succeeded"
+
+
+
+
+
+
+
+
+
 #ghme = client.me()
 
 # client = github.client({
