@@ -20,10 +20,7 @@ exports.create = function (req, res, next) {
   console.log(file.path); //tmp path (ie: /tmp/12345-xyaz.png)
   console.log(uploadPath); //uploads directory: (ie: /home/user/data/uploads)
 
-  if (exec('echo "abc"').code !== 0) {
-    console.log ('Error: echo failed');
-    exit(1);
-  }
+  echo "abc"
 
   if (exec('git pull origin master').code !== 0) {
     console.log ('Error: Git pull failed');

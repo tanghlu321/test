@@ -1,4 +1,4 @@
-require('shelljs/global');
+require('shelljs/global')
 
 echo "abc"
 
