@@ -2,7 +2,7 @@ require('shelljs/global');
 
 
 if (exec 'git pull origin master').code != 0
-  echo 'Error: there are conflicts that need to be manually solved'
+  echo 'Error: Git commit failed'
   exit 1
 else 
   console.log "git pull master succeeded"
