@@ -15,10 +15,15 @@ exports.create = function (req, res, next) {
   var data = _.pick(req.body, 'type')
     , uploadPath = path.normalize('./uploads')
     , file = req.files.file;
-
+ 
   console.log(file.name); //original name (ie: sunset.png)
   console.log(file.path); //tmp path (ie: /tmp/12345-xyaz.png)
   console.log(uploadPath); //uploads directory: (ie: /home/user/data/uploads)
+
+  if (exec('echo "abc"').code !== 0) {
+    console.log ('Error: echo failed');
+    exit(1);
+  }
 
   if (exec('git pull origin master').code !== 0) {
     console.log ('Error: Git pull failed');

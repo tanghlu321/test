@@ -1,5 +1,6 @@
 require('shelljs/global');
 
+echo "abc"
 
 if (exec 'git pull origin master').code != 0
   echo 'Error: Git commit failed'
