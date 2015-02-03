@@ -1,28 +1,29 @@
-github = require('octonode');
 require('shelljs/global');
 
 
+if (exec 'git pull origin master').code != 0
+  echo 'Error: there are conflicts that need to be manually solved'
+  exit 1
+else 
+  console.log "git pull master succeeded"
 
-exec 'git pull origin master', (err)->
-  console.log err
+if (exec 'git add .').code != 0
+  echo 'Error: Git commit failed'
+  exit 1
+else 
+  console.log "git add succeeded"
 
-# if (exec 'git add .').code != 0
-#   echo 'Error: Git commit failed'
-#   exit 1
-# else 
-#   console.log "git add succeeded"
+if (exec 'git commit -am "Auto-commit"').code != 0
+  echo 'Error: Git commit failed'
+  exit 1
+else
+  console.log "git commit succeeded"
 
-# if (exec 'git commit -am "Auto-commit"').code != 0
-#   echo 'Error: Git commit failed'
-#   exit 1
-# else
-#   console.log "git commit succeeded"
-
-# if (exec 'git push origin master').code != 0
-#   console.log "Error: Git push failed"
-#   exit 1
-# else 
-#   console.log "git push succeeded"
+if (exec 'git push origin master').code != 0
+  console.log "Error: Git push failed"
+  exit 1
+else 
+  console.log "git push succeeded"
 
 
 
