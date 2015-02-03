@@ -6,9 +6,15 @@ fdsafsdsssssssssssssdfsdfsdfsdfdgadffgdsfds
 fwefewfrgfdgdffewfewfewfewfwef
 fewfwefewfweafasdfwefewfweafewfewfewafewfwefwefwefwef
 fwefwefewafaefaefweafasfdsafadsfsdfasddfsafsdfadsfdsafw
+<<<<<<< HEAD
 dfadsfdsfsdfs
 fdsafewfwe
 wefaew
+=======
+dfadsfdsf
+dafdsfsdaf
+sfsd
+>>>>>>> 732c314589507c83839e6bb60228ef7255207414
 
 fdasfdsafewafdsfewafaew
 >>>>>>> b7ff62d443136326ee61d30407b9c27357abac39
