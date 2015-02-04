@@ -53,7 +53,7 @@ exports.create = function (req, res, next) {
         
         checkin (function (err){
           if (err !== null){
-            exec('git reset --hard HEAD~2', function (err, stdout, stderr){
+            exec('git reset --hard HEAD~1', function (err, stdout, stderr){
               f ();
             });
           }
