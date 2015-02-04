@@ -1,5 +1,5 @@
 'use strict';
-require('shelljs/global');
+//require('shelljs/global');
 
 var path = require('path');
 var _ = require('lodash');
@@ -20,17 +20,31 @@ exports.create = function (req, res, next) {
   console.log(file.path); //tmp path (ie: /tmp/12345-xyaz.png)
   console.log(uploadPath); //uploads directory: (ie: /home/user/data/uploads)
 
-  echo "abc"
-
-  if (exec('git pull origin master').code !== 0) {
-    console.log ('Error: Git pull failed');
-    exit(1);
-  }
-
-  exec('ruby tod_configs.rb ' + file.path, function (err, stdout, stderr) {
-    console.log('error:' + err)
+  exec('cd /Users/kaiwang/Projects/test/todUploader && git pull origin master', function (err, stdout, stderr) {
+    console.log('error:' + err);
     console.log('sttdout: ' + stdout);
-    res.status(200).end();
-    //git add ., commit, push
+  
+    exec('ruby tod_configs.rb ' + file.path, function (err, stdout, stderr) {
+      console.log('error:' + err);
+      console.log('sttdout: ' + stdout);
+      
+      exec('git add .', function (err, stdout, stderr){
+        console.log('error:' + err);
+        console.log('sttdout: ' + stdout);
+
+        exec('git commit -m "update"', function (err, stdout, stderr){
+          console.log('error:' + err);
+          console.log('sttdout: ' + stdout);
+          
+          exec('git push origin master', function (err, stdout, stderr){
+            console.log('error:' + err);
+            console.log('sttdout: ' + stdout);
+            res.status(200).end();
+          });
+        });
+      });
+      //res.status(200).end();
+      //git add ., commit, push
+    });
   });
 };
