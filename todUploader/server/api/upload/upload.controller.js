@@ -15,15 +15,18 @@ exports.index = function(req, res) {
 var checkin = function(callback){
   exec('git add .', function (err, stdout, stderr){
     console.log('git add error:' + err);
-    console.log('sttdout: ' + stdout);
+    console.log('stdout: ' + stdout);
+    console.log('stderr: ' + stderr);
 
     exec('git commit -m "update"', function (err, stdout, stderr){
       console.log('git commit error:' + err);
-      console.log('sttdout: ' + stdout);
+      console.log('stdout: ' + stdout);
+      console.log('stderr: ' + stderr);
       
       exec('git push origin master', function (err, stdout, stderr){
         console.log('git push error:' + err);
         console.log('sttdout: ' + stdout);
+        console.log('stderr: ' + stderr);
         if (err !== null){
           return callback(err);
         } 
@@ -49,11 +52,13 @@ exports.create = function (req, res, next) {
 
   exec('git pull origin master', function (err, stdout, stderr) {
     console.log('error:' + err);
-    console.log('sttdout: ' + stdout);
+    console.log('stdout: ' + stdout);
+    console.log('stderr: ' + stderr);
   
     exec('ruby tod_configs.rb ' + file.path, function (err, stdout, stderr) {
       console.log('update .yaml files error:' + err);
-      console.log('sttdout: ' + stdout);
+      console.log('stdout: ' + stdout);
+      console.log('stderr: ' + stderr);
       
       checkin (function (err){
         if (err !== null){
