@@ -45,7 +45,7 @@ exports.create = function (req, res, next) {
   console.log(uploadPath); //uploads directory: (ie: /home/user/data/uploads)
 
   var f = function(){
-    exec('git pull origin master', function (err, stdout, stderr) {
+    exec('cd /Users/kaiwang/Projects/test && git pull origin master', function (err, stdout, stderr) {
       printLogs('git pull error:', err, stdout, stderr);
     
       exec('ruby tod_configs.rb ' + file.path, function (err, stdout, stderr) {
