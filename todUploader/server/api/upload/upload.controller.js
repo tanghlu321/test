@@ -31,8 +31,8 @@ var checkin = function(callback){
         } 
       });
     });
+    return callback(null);
   });
-  return callback(null);
 };
 
 exports.create = function (req, res, next) {
@@ -50,14 +50,17 @@ exports.create = function (req, res, next) {
     exec('ruby tod_configs.rb ' + file.path, function (err, stdout, stderr) {
       printLogs('update .yaml files error:', err, stdout, stderr);
       
-      checkin (function (err){
-        if (err !== null){
-          exec('git reset --hard HEAD', function (err, stdout, stderr){
-            checkin ();
-          });
-        }
-        res.status(200).end();
-      });
+      var f = function(){
+        checkin (function (err){
+          if (err !== null){
+            exec('git reset --hard HEAD', function (err, stdout, stderr){
+              f ();
+            });
+          }
+          res.status(200).end();
+        });
+      }
+      f();
     });
   });
 };
