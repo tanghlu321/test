@@ -21,7 +21,7 @@ var checkin = function(callback){
   exec('git add .', function (err, stdout, stderr){
     printLogs('git add error:', err, stdout, stderr);
 
-    exec('git commit -m "update"', function (err, stdout, stderr){
+    exec('git commit -m "Updating TOD ymls cr=sparta"', function (err, stdout, stderr){
       printLogs('git commit error:', err, stdout, stderr);
       
       exec('git push origin master', function (err, stdout, stderr){
