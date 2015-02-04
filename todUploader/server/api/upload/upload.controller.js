@@ -11,22 +11,21 @@ exports.index = function(req, res) {
   res.json([]);
 };
 
+var printLogs = function(message, err, stdout, stderr){
+  console.log(message + err);
+  console.log('stdout: ' + stdout);
+  console.log('stderr: ' + stderr);
+}
 
 var checkin = function(callback){
   exec('git add .', function (err, stdout, stderr){
-    console.log('git add error:' + err);
-    console.log('stdout: ' + stdout);
-    console.log('stderr: ' + stderr);
+    printLogs('git add error:', err, stdout, stderr);
 
     exec('git commit -m "update"', function (err, stdout, stderr){
-      console.log('git commit error:' + err);
-      console.log('stdout: ' + stdout);
-      console.log('stderr: ' + stderr);
+      printLogs('git commit error:', err, stdout, stderr);
       
       exec('git push origin master', function (err, stdout, stderr){
-        console.log('git push error:' + err);
-        console.log('sttdout: ' + stdout);
-        console.log('stderr: ' + stderr);
+        printLogs('git push error:', err, stdout, stderr);
         if (err !== null){
           return callback(err);
         } 
@@ -45,24 +44,17 @@ exports.create = function (req, res, next) {
   console.log(file.path); //tmp path (ie: /tmp/12345-xyaz.png)
   console.log(uploadPath); //uploads directory: (ie: /home/user/data/uploads)
 
-  // exec ('pwd', function (err, stdout, stderr){
-  //   console.log('error:' + err);
-  //   console.log('sttdout: ' + stdout);
-  // })
-
   exec('git pull origin master', function (err, stdout, stderr) {
-    console.log('error:' + err);
-    console.log('stdout: ' + stdout);
-    console.log('stderr: ' + stderr);
+    printLogs('git pull error:', err, stdout, stderr);
   
     exec('ruby tod_configs.rb ' + file.path, function (err, stdout, stderr) {
-      console.log('update .yaml files error:' + err);
-      console.log('stdout: ' + stdout);
-      console.log('stderr: ' + stderr);
+      printLogs('update .yaml files error:', err, stdout, stderr);
       
       checkin (function (err){
         if (err !== null){
-          checkin ();
+          exec('git reset --hard HEAD', function (err, stdout, stderr){
+            checkin ();
+          });
         }
         res.status(200).end();
       });
