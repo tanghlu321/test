@@ -44,13 +44,13 @@ exports.create = function (req, res, next) {
   console.log(file.path); //tmp path (ie: /tmp/12345-xyaz.png)
   console.log(uploadPath); //uploads directory: (ie: /home/user/data/uploads)
 
-  exec('git pull origin master', function (err, stdout, stderr) {
-    printLogs('git pull error:', err, stdout, stderr);
-  
-    exec('ruby tod_configs.rb ' + file.path, function (err, stdout, stderr) {
-      printLogs('update .yaml files error:', err, stdout, stderr);
-      
-      var f = function(){
+  var f = function(){
+    exec('git pull origin master', function (err, stdout, stderr) {
+      printLogs('git pull error:', err, stdout, stderr);
+    
+      exec('ruby tod_configs.rb ' + file.path, function (err, stdout, stderr) {
+        printLogs('update .yaml files error:', err, stdout, stderr);
+        
         checkin (function (err){
           if (err !== null){
             exec('git reset --hard HEAD', function (err, stdout, stderr){
@@ -59,8 +59,8 @@ exports.create = function (req, res, next) {
           }
           res.status(200).end();
         });
-      }
-      f();
+      });
     });
-  });
+  };
+  f();
 };
