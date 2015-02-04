@@ -20,7 +20,7 @@ exports.create = function (req, res, next) {
   console.log(file.path); //tmp path (ie: /tmp/12345-xyaz.png)
   console.log(uploadPath); //uploads directory: (ie: /home/user/data/uploads)
 
-  exec('cd /Users/kaiwang/Projects/test/todUploader && git pull origin master', function (err, stdout, stderr) {
+  exec('pwd && cd /Users/kaiwang/Projects/test/todUploader && git pull origin master', function (err, stdout, stderr) {
     console.log('error:' + err);
     console.log('sttdout: ' + stdout);
   
