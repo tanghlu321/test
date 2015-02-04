@@ -11,6 +11,28 @@ exports.index = function(req, res) {
   res.json([]);
 };
 
+
+var checkin = function(callback){
+  exec('git add .', function (err, stdout, stderr){
+    console.log('git add error:' + err);
+    console.log('sttdout: ' + stdout);
+
+    exec('git commit -m "update"', function (err, stdout, stderr){
+      console.log('git commit error:' + err);
+      console.log('sttdout: ' + stdout);
+      
+      exec('git push origin master', function (err, stdout, stderr){
+        console.log('git push error:' + err);
+        console.log('sttdout: ' + stdout);
+        if (err !== null){
+          return callback(err);
+        } 
+      });
+    });
+  });
+  return callback(null);
+};
+
 exports.create = function (req, res, next) {
   var data = _.pick(req.body, 'type')
     , uploadPath = path.normalize('./uploads')
@@ -30,26 +52,15 @@ exports.create = function (req, res, next) {
     console.log('sttdout: ' + stdout);
   
     exec('ruby tod_configs.rb ' + file.path, function (err, stdout, stderr) {
-      console.log('error:' + err);
+      console.log('update .yaml files error:' + err);
       console.log('sttdout: ' + stdout);
       
-      exec('git add .', function (err, stdout, stderr){
-        console.log('error:' + err);
-        console.log('sttdout: ' + stdout);
-
-        exec('git commit -m "update"', function (err, stdout, stderr){
-          console.log('error:' + err);
-          console.log('sttdout: ' + stdout);
-          
-          exec('git push origin master', function (err, stdout, stderr){
-            console.log('error:' + err);
-            console.log('sttdout: ' + stdout);
-            res.status(200).end();
-          });
-        });
+      checkin (function (err){
+        if (err !== null){
+          checkin ();
+        }
+        res.status(200).end();
       });
-      //res.status(200).end();
-      //git add ., commit, push
     });
   });
 };
