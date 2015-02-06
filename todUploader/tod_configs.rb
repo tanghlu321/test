@@ -15,10 +15,9 @@ country_string = "##countryCode##"
 permalink_string = "##permalink##"
 
 updates = CSV.read(ARGV[0])
-print updates
-print "abc"
 config_dir='/Users/kaiwang/Project/test/batch_intl/'
 for config in Dir.glob(config_dir +  "*.yml")
+  print config
   config_file = YAML.load_file(config)
   tod_overrides = config_file['todOverrides']
   updated = false
