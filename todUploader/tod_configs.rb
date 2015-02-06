@@ -15,7 +15,6 @@ country_string = "##countryCode##"
 permalink_string = "##permalink##"
 
 updates = CSV.read(ARGV[0])
-puts "Hello World"
 config_dir='/Users/kaiwang/Project/test/emailconfig/emails/batch_intl/'
 for config in Dir.glob(config_dir +  "*.yml")
   config_file = YAML.load_file(config)
