@@ -1,7 +1,7 @@
 require 'yaml'
 require 'csv'
 #YAML::ENGINE.yamler='psych'
-YAML::ENGINE.yamler='SYCK'
+YAML::ENGINE.yamler='syck'
 
 #This is a script to add TOD configs to the existing config ymls. A lot of hardcoding is currently in place which needs to be fixed
 if ARGV.length < 1
