@@ -15,6 +15,8 @@ country_string = "##countryCode##"
 permalink_string = "##permalink##"
 
 updates = CSV.read(ARGV[0])
+print "abc"
+print updates
 config_dir='/Users/kaiwang/Project/test/batch_intl/'
 for config in Dir.glob(config_dir +  "*.yml")
   config_file = YAML.load_file(config)
