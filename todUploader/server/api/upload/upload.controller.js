@@ -21,6 +21,8 @@ var checkin = function(callback){
   exec('cd /Users/kaiwang/Projects/test && git add .', function (err, stdout, stderr){
     printLogs('git add error:', err, stdout, stderr);
 
+    // include the source CVS file name and the user who is making the upload
+    // this will help diagnoze issues with a given checkin
     exec('git commit -m "Updating TOD ymls cr=sparta"', function (err, stdout, stderr){
       printLogs('git commit error:', err, stdout, stderr);
       
@@ -44,20 +46,29 @@ exports.create = function (req, res, next) {
   console.log(file.path); //tmp path (ie: /tmp/12345-xyaz.png)
   console.log(uploadPath); //uploads directory: (ie: /home/user/data/uploads)
 
+  // give proper function names
   var f = function(){
     exec('cd /Users/kaiwang/Projects/test && git pull origin master', function (err, stdout, stderr) {
       printLogs('git pull error:', err, stdout, stderr);
+      //if (err?)
+      //  # check the type of err; here i assume it's a network not available?
+      //  res.status(500).end({message: err.message})
     
       exec('ruby tod_configs.rb ' + file.path, function (err, stdout, stderr) {
         printLogs('update .yaml files error:', err, stdout, stderr);
+        // process err
         
         checkin (function (err){
           if (err !== null){
             exec('git reset --hard HEAD~1', function (err, stdout, stderr){
+              // check error
+              // if the f() failed several times already (5+) maybe you don't want to 
+              // continue retrying?
               f ();
             });
           }
-          res.status(200).end();
+          else 
+            res.status(200).end();
         });
       });
     });
