@@ -16,8 +16,7 @@ permalink_string = "##permalink##"
 
 updates = CSV.read(ARGV[0])
 config_dir='/Users/kaiwang/Project/test/batch_intl/'
-print config_dir
-print "abc"
+print (config_dir +  "*.yml")
 print Dir.glob(config_dir +  "*.yml")
 for config in Dir.glob(config_dir +  "*.yml")
   config_file = YAML.load_file(config)
