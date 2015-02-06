@@ -1,0 +1,20 @@
+emailName: daily-email_kharkov_rm
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
+injectorClass: msys
+emailType: batch
+subjectLine: "Today's Groupon Deal"
+subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+cronTime: "0 00 06 * * ?"
+preflightEmailAddress: "preflights-ua@groupon.com"
+audienceSourceType: "hdfs"
+hdfsPath: "hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/rocketman/prod/ua/calcs/%%date%%/kharkov/daily_single/*/"
+preflightPath: "hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/rocketman/prod/ua/calcs/%%date%%/kharkov/daily_single/*/"
+batchType: g1
+fromLine: Групон Харьков <noreply@r.grouponmail.com.ua>
+countryCode: UA
+timeZone: Europe/Kiev
+headers:
+  businessGroup: g1
+  campaignGroup: kharkov
+  segment: default

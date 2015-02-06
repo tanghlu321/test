@@ -1,0 +1,20 @@
+emailName: daily-email_bangkok_en_rm
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
+injectorClass: msys
+emailType: batch
+subjectLine: "Today's Groupon Deal"
+subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+cronTime: "0 00 02 * * ?"
+preflightEmailAddress: "preflights-th@groupon.com"
+audienceSourceType: "hdfs"
+hdfsPath: "hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/th/calcs/%%date%%/bangkok_en/*/translated_results/rmsplit/tod_split/MAIN_SEND/"
+preflightPath: "hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/th/calcs/%%date%%/bangkok_en/*/translated_results/rmsplit/tod_split/MAIN_SEND/"
+batchType: g1
+fromLine: Groupon Bangkok <noreply@r.mygroupon.co.th>
+countryCode: TH
+timeZone: Asia/Bangkok
+headers:
+  businessGroup: g1
+  campaignGroup: bangkok_en
+  segment: default

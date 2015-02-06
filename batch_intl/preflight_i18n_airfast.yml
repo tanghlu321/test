@@ -1,0 +1,11 @@
+emailName: preflight_i18n_airfast
+emailType: batch
+htmlTemplateName: layouts/arrowhead/i18n_airfast.ftl
+injectorClass: commercial
+subjectLineTemplateName: layouts/arrowhead/i18n_airfast_subjectline.ftl
+textTemplateName: layouts/arrowhead/i18n_airfast_txt.ftl
+preflightJsonFile: layouts/arrowhead/i18n_airfast_example.json
+preflightEmailAddress: "preflights-rocketman@groupon.com"
+audienceSourceType: "hdfs"
+batchType: rocketman_daily_deal
+cronTime: "0 0 19 27 3 ? 2020"

@@ -1,0 +1,20 @@
+emailName: daily-email_sao-paulo---premium_rm
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
+injectorClass: msys
+emailType: batch
+subjectLine: "Today's Groupon Deal"
+subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+cronTime: "0 00 11 * * ?"
+preflightEmailAddress: "preflights-br@groupon.com"
+audienceSourceType: "hdfs"
+hdfsPath: "hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/br/calcs/%%date%%/sao-paulo---premium/*/translated_results/rmsplit/tod_split/MAIN_SEND/"
+preflightPath: "hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/br/calcs/%%date%%/sao-paulo---premium/*/translated_results/rmsplit/tod_split/PREFLIGHT/"
+batchType: 2t
+fromLine: Groupon Premium SP <noreply@r.grouponmail.com.br>
+countryCode: BR
+timeZone: America/Sao_Paulo
+headers:
+  businessGroup: local special
+  campaignGroup: sao-paulo---premium
+  segment: default

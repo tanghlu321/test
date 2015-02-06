@@ -1,5 +1,4 @@
 'use strict';
-//require('shelljs/global');
 
 var path = require('path');
 var _ = require('lodash');
@@ -17,13 +16,13 @@ var printLogs = function(message, err, stdout, stderr){
   console.log('stderr: ' + stderr);
 }
 
-var checkin = function(callback){
+var checkin = function(fileName, callback){
   exec('cd /Users/kaiwang/Projects/test && git add .', function (err, stdout, stderr){
     printLogs('git add error:', err, stdout, stderr);
 
     // include the source CVS file name and the user who is making the upload
     // this will help diagnoze issues with a given checkin
-    exec('git commit -m "Updating TOD ymls cr=sparta"', function (err, stdout, stderr){
+    exec('git commit -m "Updating TOD ymls cr=sparta, checkin file: " + fileName', function (err, stdout, stderr){
       printLogs('git commit error:', err, stdout, stderr);
       
       exec('git push origin master', function (err, stdout, stderr){
@@ -37,6 +36,7 @@ var checkin = function(callback){
   });
 };
 
+
 exports.create = function (req, res, next) {
   var data = _.pick(req.body, 'type')
     , uploadPath = path.normalize('./uploads')
@@ -46,32 +46,39 @@ exports.create = function (req, res, next) {
   console.log(file.path); //tmp path (ie: /tmp/12345-xyaz.png)
   console.log(uploadPath); //uploads directory: (ie: /home/user/data/uploads)
 
-  // give proper function names
-  var f = function(){
+  var tryCount = 0;
+  var update = function(){
     exec('cd /Users/kaiwang/Projects/test && git pull origin master', function (err, stdout, stderr) {
       printLogs('git pull error:', err, stdout, stderr);
-      //if (err?)
-      //  # check the type of err; here i assume it's a network not available?
-      //  res.status(500).end({message: err.message})
+      if (err !== null){
+        res.status(500).send({message: err.message});
+        return;
+      } 
     
       exec('ruby tod_configs.rb ' + file.path, function (err, stdout, stderr) {
         printLogs('update .yaml files error:', err, stdout, stderr);
-        // process err
+        if (err !== null){
+          res.status(500).send({message: err.message});
+          return;
+        } 
         
-        checkin (function (err){
+        checkin (file.name, function (err){
           if (err !== null){
+            if (tryCount > 5){
+              res.status(500).send({message: err.message});
+              return;
+            }
+    
+            tryCount++;
             exec('git reset --hard HEAD~1', function (err, stdout, stderr){
-              // check error
-              // if the f() failed several times already (5+) maybe you don't want to 
-              // continue retrying?
-              f ();
+              update();
             });
           }
           else 
-            res.status(200).end();
+            res.status(200).send();
         });
       });
     });
   };
-  f();
+  update();
 };

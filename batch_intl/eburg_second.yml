@@ -1,0 +1,20 @@
+emailName: second-email_eburg_rm
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
+injectorClass: msys
+emailType: batch
+subjectLine: "Today's Groupon Deal"
+subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+cronTime: "0 00 07 * * ?"
+preflightEmailAddress: "preflights-ru@groupon.com"
+audienceSourceType: "hdfs"
+hdfsPath: "hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/rocketman/prod/ru/calcs/%%date%%/eburg/daily_second/*/"
+preflightPath: "hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/rocketman/prod/ru/calcs/%%date%%/eburg/daily_second/*/"
+batchType: g1
+fromLine: Групон акции дня <noreply@r.grouponmail.ru>
+countryCode: RU
+timeZone: Europe/Moscow
+headers:
+  businessGroup: local
+  campaignGroup: g1
+  segment: eburg

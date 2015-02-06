@@ -1,0 +1,20 @@
+emailName: daily-email_patra_rm
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
+injectorClass: msys
+emailType: batch
+subjectLine: "Today's Groupon Deal"
+subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+cronTime: "0 30 04 * * ?"
+preflightEmailAddress: "preflights-gr@groupon.com"
+audienceSourceType: "hdfs"
+hdfsPath: "hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gr/calcs/%%date%%/patra/*/translated_results/rmsplit/tod_split/MAIN_SEND/"
+preflightPath: "hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gr/calcs/%%date%%/patra/*/translated_results/rmsplit/tod_split/MAIN_SEND/"
+batchType: g1
+fromLine: Groupon <noreply@r.grouponmail.gr>
+countryCode: GR
+timeZone: Europe/Athens
+headers:
+  businessGroup: g1
+  campaignGroup: patra
+  segment: default

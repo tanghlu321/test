@@ -1,0 +1,32 @@
+--- 
+emailName: daily-email_perugia_rm
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
+injectorClass: msys
+emailType: batch
+subjectLine: Today's Groupon Deal
+subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+cronTime: 0 00 09 * * ? *
+preflightEmailAddress: preflights-it@groupon.com
+audienceSourceType: hdfs
+hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/it/calcs/%%date%%/perugia/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/it/calcs/%%date%%/perugia/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+batchType: g1
+fromLine: Groupon Perugia <noreply@r.grouponmail.it>
+countryCode: IT
+timeZone: Europe/Rome
+headers: 
+  businessGroup: g1
+  campaignGroup: perugia
+  segment: default
+todOverrides: 
+- cronTime: 0 30 04 * * ? *
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/it/calcs/%%date%%/perugia/*/translated_results/rmsplit/tod_split/CONTROL_1/
+- cronTime: 0 30 04 * * ? *
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/it/calcs/%%date%%/perugia/*/translated_results/rmsplit/tod_split/CONTROL_2/
+- cronTime: 0 00 09 * * ? *
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/it/calcs/%%date%%/perugia/*/translated_results/rmsplit/tod_split/TOD_1/
+- cronTime: 0 00 09 * * ? *
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/it/calcs/%%date%%/perugia/*/translated_results/rmsplit/tod_split/TOD_2/
+- cronTime: 0 00 09 * * ? *
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/it/calcs/%%date%%/perugia/*/translated_results/rmsplit/tod_split/TOD_3/

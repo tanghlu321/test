@@ -1,0 +1,11 @@
+emailName: preflight_dynamic_design
+emailType: batch
+htmlTemplateName: layouts/arrowhead/dynamic_design.ftl
+textTemplateName: 
+injectorClass: commercial
+subjectLineTemplateName: layouts/arrowhead/dynamic_design_subject_line.ftl
+preflightJsonFile: layouts/arrowhead/dynamic_design_example.json
+preflightEmailAddress: "preflights-rocketman@groupon.com"
+audienceSourceType: "hdfs"
+batchType: rocketman_daily_deal
+cronTime: "0 0 19 27 3 ? 2020"

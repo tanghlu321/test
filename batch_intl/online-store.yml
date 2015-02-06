@@ -1,0 +1,20 @@
+emailName: channel-goods_no-online-store_rm
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
+injectorClass: msys
+emailType: batch
+subjectLine: "Today's Groupon Deal"
+subjectLineTemplateName: layouts/daily_deal/city_deals/goods_subjectline.ftl
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+cronTime: "0 00 07 * * ?"
+preflightEmailAddress: "preflights-no@groupon.com"
+audienceSourceType: "hdfs"
+hdfsPath: "hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/no/calcs/%%date%%/online-store/*/translated_results/rmsplit/tod_split/MAIN_SEND/"
+preflightPath: "hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/no/calcs/%%date%%/online-store/*/translated_results/rmsplit/tod_split/MAIN_SEND/"
+batchType: 2t
+fromLine: Groupon Shopping <noreply@r.grouponmail.no>
+countryCode: "NO"
+timeZone: Europe/Oslo
+headers:
+  businessGroup: goods
+  campaignGroup: auto
+  segment: default

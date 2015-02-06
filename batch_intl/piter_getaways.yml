@@ -1,0 +1,20 @@
+emailName: channel-getaways_ru-piter_rm
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
+injectorClass: msys
+emailType: batch
+subjectLine: "Today's Groupon Deal"
+subjectLineTemplateName: layouts/daily_deal/city_deals/getaways_subjectline.ftl
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+cronTime: "0 00 14 * * ?"
+preflightEmailAddress: "preflights-ru@groupon.com"
+audienceSourceType: "hdfs"
+hdfsPath: "hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/rocketman/prod/ru/calcs/%%date%%/piter/travel_single/*/"
+preflightPath: "hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/rocketman/prod/ru/calcs/%%date%%/piter/travel_single/*/"
+batchType: g1
+fromLine: Групон / Туризм <noreply@r.grouponmail.ru>
+countryCode: RU
+timeZone: Europe/Moscow
+headers:
+  businessGroup: getaways
+  campaignGroup: auto
+  segment: default

@@ -1,0 +1,36 @@
+--- 
+emailName: daily-email_sydney_rm
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
+injectorClass: msys
+emailType: batch
+subjectLine: Today's Groupon Deal
+subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+cronTime: 0 00 22 * * ? 
+preflightEmailAddress: preflights-au@groupon.com
+audienceSourceType: hdfs
+hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/au/calcs/%%date%%/sydney/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/au/calcs/%%date%%/sydney/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+todOverrides: 
+- cronTime: 0 00 14 * * ? *
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/au/calcs/%%date%%/sydney/*/translated_results/rmsplit/tod_split/CONTROL_1/
+- cronTime: 0 00 14 * * ? *
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/au/calcs/%%date%%/sydney/*/translated_results/rmsplit/tod_split/CONTROL_2/
+- cronTime: 0 00 22 * * ? *
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/au/calcs/%%date%%/sydney/*/translated_results/rmsplit/tod_split/TOD_1/
+- cronTime: 0 00 22 * * ? *
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/au/calcs/%%date%%/sydney/*/translated_results/rmsplit/tod_split/TOD_2/
+- cronTime: 0 00 22 * * ? *
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/au/calcs/%%date%%/sydney/*/translated_results/rmsplit/tod_split/TOD_3/
+- cronTime: 0 00 22 * * ? *
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/au/calcs/%%date%%/sydney/*/translated_results/rmsplit/tod_split/TOD_4/
+- cronTime: 0 00 22 * * ? *
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/au/calcs/%%date%%/sydney/*/translated_results/rmsplit/tod_split/TOD_5/
+batchType: g1
+fromLine: Groupon Sydney <noreply@r.grouponmail.com.au>
+countryCode: AU
+timeZone: Australia/Sydney
+headers: 
+  businessGroup: g1
+  campaignGroup: sydney
+  segment: default

@@ -1,0 +1,20 @@
+emailName: daily-email_salvador_rm
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
+injectorClass: msys
+emailType: batch
+subjectLine: "Today's Groupon Deal"
+subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+cronTime: "0 00 11 * * ?"
+preflightEmailAddress: "preflights-br@groupon.com"
+audienceSourceType: "hdfs"
+hdfsPath: "hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/br/calcs/%%date%%/salvador/*/translated_results/rmsplit/tod_split/MAIN_SEND/"
+preflightPath: "hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/br/calcs/%%date%%/salvador/*/translated_results/rmsplit/tod_split/MAIN_SEND/"
+batchType: g1
+fromLine: Groupon Salvador <noreply@r.grouponmail.com.br>
+countryCode: BR
+timeZone: America/Bahia
+headers:
+  businessGroup: g1
+  campaignGroup: salvador
+  segment: default
