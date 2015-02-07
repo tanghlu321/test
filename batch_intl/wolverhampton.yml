@@ -1,10 +1,23 @@
 --- 
-preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
-fromLine: Groupon <noreply@r.grouponmail.co.uk>
-batchType: g1
+audienceSourceType: hdfs
+emailType: batch
+subjectLine: Today's Groupon Deal
+injectorClass: msys
 emailName: daily-email_wolverhampton_rm
-timeZone: Europe/London
 preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/wolverhampton/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/wolverhampton/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+fromLine: Groupon <noreply@r.grouponmail.co.uk>
+cronTime: 0 30 06 * * ?
+headers: 
+  segment: default
+  campaignGroup: wolverhampton
+  businessGroup: g1
+preflightEmailAddress: preflights-uk@groupon.com
+timeZone: Europe/London
+batchType: g1
+countryCode: UK
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
 todOverrides: 
 - hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/wolverhampton/*/translated_results/rmsplit/tod_split/CONTROL_1/
   cronTime: 0 30 06 * * ?
@@ -20,17 +33,4 @@ todOverrides:
   cronTime: 0 30 06 * * ?
 - hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/wolverhampton/*/translated_results/rmsplit/tod_split/TOD_5/
   cronTime: 0 30 06 * * ?
-subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
-countryCode: UK
-injectorClass: msys
-preflightEmailAddress: preflights-uk@groupon.com
-subjectLine: Today's Groupon Deal
-headers: 
-  businessGroup: g1
-  campaignGroup: wolverhampton
-  segment: default
 htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
-hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/wolverhampton/*/translated_results/rmsplit/tod_split/MAIN_SEND/
-cronTime: 0 30 06 * * ?
-emailType: batch
-audienceSourceType: hdfs
