@@ -16,8 +16,7 @@ permalink_string = "##permalink##"
 
 updates = CSV.read(ARGV[0])
 config_dir='/Users/kaiwang/Projects/test/batch_intl/'
-print (config_dir +  "*.yml")
-print Dir.glob(config_dir + "*.yml").length
+
 for config in Dir.glob(config_dir +  "*.yml")
   config_file = YAML.load_file(config)
   tod_overrides = config_file['todOverrides']

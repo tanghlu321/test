@@ -25,7 +25,7 @@ angular.module('todUploaderApp')
             $scope.message = "Success!";
           }
           else {
-            $scope.message = data;
+            $scope.message = "abc";
           }
           // file is uploaded successfully
           console.log('file ' + config.file.name + 'is uploaded successfully. Response: ' + data);

@@ -1,36 +1,36 @@
 --- 
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
 fromLine: Groupon <noreply@r.grouponmail.co.uk>
-cronTime: 0 30 06 * * ?
-audienceSourceType: hdfs
-htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
-subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
-todOverrides: 
-- cronTime: 0 30 06 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/kingston_upon_hull/*/translated_results/rmsplit/tod_split/CONTROL_1/
-- cronTime: 0 30 06 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/kingston_upon_hull/*/translated_results/rmsplit/tod_split/CONTROL_2/
-- cronTime: 0 30 03 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/kingston_upon_hull/*/translated_results/rmsplit/tod_split/TOD_1/
-- cronTime: 0 30 06 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/kingston_upon_hull/*/translated_results/rmsplit/tod_split/TOD_2/
-- cronTime: 0 30 08 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/kingston_upon_hull/*/translated_results/rmsplit/tod_split/TOD_3/
-- cronTime: 0 30 06 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/kingston_upon_hull/*/translated_results/rmsplit/tod_split/TOD_4/
-- cronTime: 0 30 06 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/kingston_upon_hull/*/translated_results/rmsplit/tod_split/TOD_5/
+batchType: g1
+emailName: daily-email_kingston_upon_hull_rm
+timeZone: Europe/London
 preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/kingston_upon_hull/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+todOverrides: 
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/kingston_upon_hull/*/translated_results/rmsplit/tod_split/CONTROL_1/
+  cronTime: 0 30 06 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/kingston_upon_hull/*/translated_results/rmsplit/tod_split/CONTROL_2/
+  cronTime: 0 30 06 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/kingston_upon_hull/*/translated_results/rmsplit/tod_split/TOD_1/
+  cronTime: 0 30 03 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/kingston_upon_hull/*/translated_results/rmsplit/tod_split/TOD_2/
+  cronTime: 0 30 06 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/kingston_upon_hull/*/translated_results/rmsplit/tod_split/TOD_3/
+  cronTime: 0 30 08 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/kingston_upon_hull/*/translated_results/rmsplit/tod_split/TOD_4/
+  cronTime: 0 30 06 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/kingston_upon_hull/*/translated_results/rmsplit/tod_split/TOD_5/
+  cronTime: 0 30 06 * * ?
+subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
+countryCode: UK
+injectorClass: msys
+preflightEmailAddress: preflights-uk@groupon.com
+subjectLine: Today's Groupon Deal
 headers: 
   businessGroup: g1
   campaignGroup: kingston_upon_hull
   segment: default
-emailName: daily-email_kingston_upon_hull_rm
-subjectLine: Today's Groupon Deal
-preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
-emailType: batch
-batchType: g1
-preflightEmailAddress: preflights-uk@groupon.com
-injectorClass: msys
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
 hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/kingston_upon_hull/*/translated_results/rmsplit/tod_split/MAIN_SEND/
-countryCode: UK
-timeZone: Europe/London
+cronTime: 0 30 06 * * ?
+emailType: batch
+audienceSourceType: hdfs
