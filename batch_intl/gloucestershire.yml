@@ -1,7 +1,17 @@
 --- 
+<<<<<<< HEAD
 hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/gloucestershire/*/translated_results/rmsplit/tod_split/MAIN_SEND/
 countryCode: UK
 preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+=======
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
+injectorClass: msys
+emailName: daily-email_gloucestershire_rm
+emailType: batch
+hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/gloucestershire/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+timeZone: Europe/London
+preflightEmailAddress: preflights-uk@groupon.com
+>>>>>>> 86324f4fafd7f55d5e3fd895123fdcbe888c6d43
 todOverrides: 
 - hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/gloucestershire/*/translated_results/rmsplit/tod_split/CONTROL_1/
   cronTime: 0 30 06 * * ?
@@ -17,6 +27,7 @@ todOverrides:
   cronTime: 0 30 06 * * ?
 - hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/gloucestershire/*/translated_results/rmsplit/tod_split/TOD_5/
   cronTime: 0 30 06 * * ?
+<<<<<<< HEAD
 timeZone: Europe/London
 preflightEmailAddress: preflights-uk@groupon.com
 htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
@@ -34,3 +45,18 @@ preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/
 cronTime: 0 30 06 * * ?
 injectorClass: msys
 audienceSourceType: hdfs
+=======
+fromLine: Groupon <noreply@r.grouponmail.co.uk>
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
+headers: 
+  businessGroup: g1
+  campaignGroup: gloucestershire
+  segment: default
+audienceSourceType: hdfs
+cronTime: 0 30 06 * * ?
+subjectLine: Today's Groupon Deal
+batchType: g1
+countryCode: UK
+preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/gloucestershire/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+>>>>>>> 86324f4fafd7f55d5e3fd895123fdcbe888c6d43

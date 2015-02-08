@@ -69,7 +69,6 @@ exports.create = function (req, res, next) {
         } 
         
         checkin (file.name, function (err){
-          err = "fake error"
           if (err !== null){
             if (tryCount > 5){
               res.status(500).send({Error: "Git checkin error: " + err});
