@@ -1,10 +1,5 @@
 --- 
-preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/chester/*/translated_results/rmsplit/tod_split/MAIN_SEND/
-audienceSourceType: hdfs
-headers: 
-  campaignGroup: chester
-  businessGroup: g1
-  segment: default
+preflightEmailAddress: preflights-uk@groupon.com
 todOverrides: 
 - hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/chester/*/translated_results/rmsplit/tod_split/CONTROL_1/
   cronTime: 0 45 06 * * ?
@@ -20,17 +15,22 @@ todOverrides:
   cronTime: 0 45 06 * * ?
 - hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/chester/*/translated_results/rmsplit/tod_split/TOD_5/
   cronTime: 0 45 06 * * ?
-injectorClass: msys
-htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
+audienceSourceType: hdfs
 emailName: daily-email_chester_rm
-subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
 hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/chester/*/translated_results/rmsplit/tod_split/MAIN_SEND/
-cronTime: 0 45 06 * * ?
-preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
-fromLine: Groupon <noreply@r.grouponmail.co.uk>
-timeZone: Europe/London
-subjectLine: Today's Groupon Deal
-preflightEmailAddress: preflights-uk@groupon.com
-emailType: batch
 batchType: g1
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
 countryCode: UK
+headers: 
+  campaignGroup: chester
+  segment: default
+  businessGroup: g1
+emailType: batch
+subjectLine: Today's Groupon Deal
+timeZone: Europe/London
+cronTime: 0 45 06 * * ?
+fromLine: Groupon <noreply@r.grouponmail.co.uk>
+preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/chester/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
+injectorClass: msys
