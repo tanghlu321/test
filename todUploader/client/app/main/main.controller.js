@@ -22,7 +22,7 @@ angular.module('todUploaderApp')
           console.log('progress: ' + parseInt(100.0 * evt.loaded / evt.total) + '% file :'+ evt.config.file.name);
         }).success(function(data, status, headers, config) {
           if (status == 200) {
-            $scope.message = "Success!" + data;
+            $scope.message = "Success!" + JSON.stringify(data);
           }
           else {
             $scope.message = "Error";
