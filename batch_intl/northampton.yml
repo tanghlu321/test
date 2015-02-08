@@ -1,36 +1,36 @@
 --- 
-injectorClass: msys
-preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
-batchType: g1
-hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/northampton/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+fromLine: Groupon <noreply@r.grouponmail.co.uk>
 emailType: batch
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
+emailName: daily-email_northampton_rm
 preflightEmailAddress: preflights-uk@groupon.com
 timeZone: Europe/London
-subjectLine: Today's Groupon Deal
-audienceSourceType: hdfs
-todOverrides: 
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/northampton/*/translated_results/rmsplit/tod_split/CONTROL_1/
-  cronTime: 0 30 06 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/northampton/*/translated_results/rmsplit/tod_split/CONTROL_2/
-  cronTime: 0 30 06 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/northampton/*/translated_results/rmsplit/tod_split/TOD_1/
-  cronTime: 0 30 03 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/northampton/*/translated_results/rmsplit/tod_split/TOD_2/
-  cronTime: 0 30 06 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/northampton/*/translated_results/rmsplit/tod_split/TOD_3/
-  cronTime: 0 30 08 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/northampton/*/translated_results/rmsplit/tod_split/TOD_4/
-  cronTime: 0 30 06 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/northampton/*/translated_results/rmsplit/tod_split/TOD_5/
-  cronTime: 0 30 06 * * ?
-fromLine: Groupon <noreply@r.grouponmail.co.uk>
-countryCode: UK
-preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/northampton/*/translated_results/rmsplit/tod_split/MAIN_SEND/
-subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
-emailName: daily-email_northampton_rm
-htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
+cronTime: 0 30 06 * * ?
 headers: 
   campaignGroup: northampton
-  businessGroup: g1
   segment: default
-cronTime: 0 30 06 * * ?
+  businessGroup: g1
+preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/northampton/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+countryCode: UK
+hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/northampton/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+injectorClass: msys
+batchType: g1
+subjectLine: Today's Groupon Deal
+todOverrides: 
+- cronTime: 0 30 06 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/northampton/*/translated_results/rmsplit/tod_split/CONTROL_1/
+- cronTime: 0 30 06 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/northampton/*/translated_results/rmsplit/tod_split/CONTROL_2/
+- cronTime: 0 30 03 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/northampton/*/translated_results/rmsplit/tod_split/TOD_1/
+- cronTime: 0 30 06 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/northampton/*/translated_results/rmsplit/tod_split/TOD_2/
+- cronTime: 0 30 08 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/northampton/*/translated_results/rmsplit/tod_split/TOD_3/
+- cronTime: 0 30 06 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/northampton/*/translated_results/rmsplit/tod_split/TOD_4/
+- cronTime: 0 30 06 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/northampton/*/translated_results/rmsplit/tod_split/TOD_5/
+subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+audienceSourceType: hdfs

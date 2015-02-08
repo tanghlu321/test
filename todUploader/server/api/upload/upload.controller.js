@@ -58,7 +58,7 @@ exports.create = function (req, res, next) {
       exec('ruby tod_configs.rb ' + file.path, function (err, stdout, stderr) {
         printLogs('update .yaml files error:', err, stdout, stderr);
         if (err !== null){
-          res.status(500).send({message: err.message});
+          res.status(500).send({message: JSON.stringify(err)});
           return;
         } 
         
@@ -75,7 +75,7 @@ exports.create = function (req, res, next) {
             });
           }
           else 
-            res.status(200).end();
+            res.status(200).send({message: "abc"});
         });
       });
     });
