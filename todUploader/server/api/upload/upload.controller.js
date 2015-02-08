@@ -19,11 +19,17 @@ var printLogs = function(message, err, stdout, stderr){
 var checkin = function(fileName, callback){
   exec('cd /Users/kaiwang/Projects/test && git add .', function (err, stdout, stderr){
     printLogs('git add error:', err, stdout, stderr);
+    if (err !== null){
+      return callback(err);
+    } 
 
     // include the source CVS file name and the user who is making the upload
     // this will help diagnoze issues with a given checkin
     exec('git commit -m "Updating TOD ymls cr=sparta, checkin file: "', function (err, stdout, stderr){
       printLogs('git commit error:', err, stdout, stderr);
+      if (err !== null){
+        return callback(err);
+      } 
       
       exec('git push origin master', function (err, stdout, stderr){
         printLogs('git push error:', err, stdout, stderr);
@@ -51,21 +57,22 @@ exports.create = function (req, res, next) {
     exec('cd /Users/kaiwang/Projects/test && git pull origin master', function (err, stdout, stderr) {
       printLogs('git pull error:', err, stdout, stderr);
       if (err !== null){
-        res.status(500).send({message: err.message});
+        res.status(500).send({Error: "Git pull error " + err.message});
         return;
       } 
     
       exec('ruby tod_configs.rb ' + file.path, function (err, stdout, stderr) {
         printLogs('update .yaml files error:', err, stdout, stderr);
         if (err !== null){
-          res.status(500).send({message: JSON.stringify(err)});
+          res.status(400).send({Error: "when updating .yml files " + err.message});
           return;
         } 
         
         checkin (file.name, function (err){
+          err = "fake error"
           if (err !== null){
             if (tryCount > 5){
-              res.status(500).send({message: err.message});
+              res.status(500).send({Error: "Git checkin error: " + err});
               return;
             }
     
@@ -75,7 +82,7 @@ exports.create = function (req, res, next) {
             });
           }
           else 
-            res.status(200).send({message: "abc"});
+            res.status(200).end();
         });
       });
     });

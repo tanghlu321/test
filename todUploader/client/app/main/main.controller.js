@@ -22,14 +22,13 @@ angular.module('todUploaderApp')
           console.log('progress: ' + parseInt(100.0 * evt.loaded / evt.total) + '% file :'+ evt.config.file.name);
         }).success(function(data, status, headers, config) {
           if (status == 200) {
-            $scope.message = "Success!" + JSON.stringify(data);
-          }
-          else {
-            $scope.message = "Error";
+            $scope.message = "Success!";
           }
           // file is uploaded successfully
           console.log('file ' + config.file.name + 'is uploaded successfully. Response: ' + data);
-        });
+        }).error(function(data, status, headers, config){
+          $scope.message = JSON.stringify(data);
+        })
         //.error(...)
         //.then(success, error, progress); // returns a promise that does NOT have progress/abort/xhr functions
         //.xhr(function(xhr){xhr.upload.addEventListener(...)}) // access or attach event listeners to
