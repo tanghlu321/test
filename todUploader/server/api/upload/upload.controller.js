@@ -37,52 +37,49 @@ var printLogs = function(message, err, stdout, stderr){
 //   });
 // };
 
-var afterPullMaster = function(err, stdout, stderr, file, res){
+var afterPullMaster = function(err, stdout, stderr, file, callback){
   printLogs('git pull error:', err, stdout, stderr);
   if (err !== null){
-    res.status(500).send({Error: "Git pull error " + err.message});
-    return next();
+    return callback(err);
   }
   exec('ruby tod_configs.rb ' + file.path, function(err, stdout, stderr){
-    afterExecRuby(err, stdout, stderr, res);
+    afterExecRuby(err, stdout, stderr, callback);
   });
 }
 
-var afterExecRuby = function(err, stdout, stderr, res){
+var afterExecRuby = function(err, stdout, stderr, callback){
   printLogs('update .yaml files error:', err, stdout, stderr);
   if (err !== null){
-    res.status(500).send({Error: "when updating .yml files " + err.message});
-    return next();
+    return callback(err);
   } 
   exec('cd /Users/kaiwang/Projects/test && git add .', function(err, stdout, stderr){
-    afterGitAdd(err, stdout, stderr, res);
+    afterGitAdd(err, stdout, stderr, callback);
   });
 }
 
-var afterGitAdd = function(err, stdout, stderr, res){
+var afterGitAdd = function(err, stdout, stderr, callback){
   printLogs('git add error:', err, stdout, stderr);
   if (err !== null){
-    res.status(500).send({Error: "Git add error " + err.message});
-    return next();
+    return callback(err);
   } 
   exec('git commit -m "Updating TOD ymls cr=sparta"', function(err, stdout, stderr){
-    afterGitCommit(err, stdout, stderr, res);
+    afterGitCommit(err, stdout, stderr, callback);
   });
 }
 
-var afterGitCommit = function(err, stdout,stderr, res){
+var afterGitCommit = function(err, stdout,stderr, callback){
   printLogs('git commit error:', err, stdout, stderr); 
   if (err !== null){
-    res.status(500).send({Error: "Git commit error " + err.message});
-    return next();
+    return callback(err);
   } 
   exec('git push origin master', function(err, stdout, stderr){
-    afterGitPush(err, stdout, stderr);
+    afterGitPush(err, stdout, stderr, callback);
   });
 }
 
-function afterGitPush(err, stdout, stderr, res){
+function afterGitPush(err, stdout, stderr, callback){
   printLogs('git push error:', err, stdout, stderr);
+  return callback(err);
 }
 
 exports.create = function (req, res, next) {
@@ -92,7 +89,11 @@ exports.create = function (req, res, next) {
 
   exec('cd /Users/kaiwang/Projects/test && git pull origin master', function(err, stdout, stderr){
     afterPullMaster(err, stdout, stderr, file, res, function(err){
-      res.status(200).end();
+      if (err == null)
+        res.status(200).end();
+      else
+        res.status(500).send({Error: err.message});
+        return next();
     });
   });
 };
