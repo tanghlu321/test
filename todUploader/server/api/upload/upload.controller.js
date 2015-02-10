@@ -44,7 +44,7 @@ var afterPullMaster = function(err, stdout, stderr, file, callback){
   }
   exec('ruby tod_configs.rb ' + file.path, function(err, stdout, stderr){
     afterExecRuby(err, stdout, stderr, function(err){
-      return callback(err);
+      callback(err);
     });
   });
 }
@@ -80,14 +80,14 @@ var afterGitCommit = function(err, stdout,stderr, callback){
   } 
   exec('git push origin master', function(err, stdout, stderr){
     afterGitPush(err, stdout, stderr, function(err){
-      return callback(err);
+      callback(err);
     });
   });
 }
 
 function afterGitPush(err, stdout, stderr, callback){
   printLogs('git push error:', err, stdout, stderr);
-  return callback(err);
+  callback(err);
 }
 
 exports.create = function (req, res, next) {
