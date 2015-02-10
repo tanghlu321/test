@@ -74,9 +74,7 @@ var afterGitAdd = function(err, stdout, stderr, callback){
 
 var afterGitCommit = function(err, stdout,stderr, callback){
   printLogs('git commit error:', err, stdout, stderr); 
-  if (err !== null){
-    return callback(err);
-  } 
+  
   exec('git push origin master', function(err, stdout, stderr){
     afterGitPush(err, stdout, stderr, function(err){
       callback(err);
