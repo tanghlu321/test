@@ -43,7 +43,9 @@ var afterPullMaster = function(err, stdout, stderr, file, callback){
     return callback(err);
   }
   exec('ruby tod_configs.rb ' + file.path, function(err, stdout, stderr){
-    afterExecRuby(err, stdout, stderr, callback);
+    afterExecRuby(err, stdout, stderr, function(err){
+      return callback(err);
+    });
   });
 }
 
@@ -53,7 +55,9 @@ var afterExecRuby = function(err, stdout, stderr, callback){
     return callback(err);
   } 
   exec('cd /Users/kaiwang/Projects/test && git add .', function(err, stdout, stderr){
-    afterGitAdd(err, stdout, stderr, callback);
+    afterGitAdd(err, stdout, stderr, function(err){
+      return callback(err);
+    });
   });
 }
 
@@ -63,7 +67,9 @@ var afterGitAdd = function(err, stdout, stderr, callback){
     return callback(err);
   } 
   exec('git commit -m "Updating TOD ymls cr=sparta"', function(err, stdout, stderr){
-    afterGitCommit(err, stdout, stderr, callback);
+    afterGitCommit(err, stdout, stderr, function(err){
+      return callback(err);
+    });
   });
 }
 
@@ -73,7 +79,9 @@ var afterGitCommit = function(err, stdout,stderr, callback){
     return callback(err);
   } 
   exec('git push origin master', function(err, stdout, stderr){
-    afterGitPush(err, stdout, stderr, callback);
+    afterGitPush(err, stdout, stderr, function(err){
+      return callback(err);
+    });
   });
 }
 
