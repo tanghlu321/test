@@ -41,13 +41,6 @@ var checkin = function(fileName, callback){
 
 
 exports.create = function (req, res, next) {
-  var data = _.pick(req.body, 'type')
-    , uploadPath = path.normalize('./uploads')
-    , file = req.files.file;
- 
-  console.log(file.name); //original name (ie: sunset.png)
-  console.log(file.path); //tmp path (ie: /tmp/12345-xyaz.png)
-  console.log(uploadPath); //uploads directory: (ie: /home/user/data/uploads)
 
   var tryCount = 0;
   var update = function(){
