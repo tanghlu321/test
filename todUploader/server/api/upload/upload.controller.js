@@ -55,21 +55,21 @@ exports.create = function (req, res, next) {
       printLogs('git pull error:', err, stdout, stderr);
       if (err !== null){
         res.status(500).send({Error: "Git pull error " + err.message});
-        next();
+        return next();
       } 
     
       exec('ruby tod_configs.rb ' + file.path, function (err, stdout, stderr) {
         printLogs('update .yaml files error:', err, stdout, stderr);
         if (err !== null){
           res.status(400).send({Error: "when updating .yml files " + err.message});
-          next();
+          return next();
         } 
         
         checkin (file.name, function (err){
           if (err !== null){
             if (tryCount > 5){
               res.status(500).send({Error: "Git checkin error: " + err});
-              next();
+              return next();
             }
     
             tryCount++;
