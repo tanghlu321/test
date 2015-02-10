@@ -77,10 +77,8 @@ exports.create = function (req, res, next) {
               update();
             });
           }
-          else{
+          else 
             res.status(200).end();
-            return next();
-          }
         });
       });
     });
