@@ -1,152 +1,26 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'shelljs' ]
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'start' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.33
-4 verbose cache add [ 'shelljs', null ]
-5 verbose cache add name=undefined spec="shelljs" args=["shelljs",null]
-6 verbose parsed url { protocol: null,
-6 verbose parsed url   slashes: null,
-6 verbose parsed url   auth: null,
-6 verbose parsed url   host: null,
-6 verbose parsed url   port: null,
-6 verbose parsed url   hostname: null,
-6 verbose parsed url   hash: null,
-6 verbose parsed url   search: null,
-6 verbose parsed url   query: null,
-6 verbose parsed url   pathname: 'shelljs',
-6 verbose parsed url   path: 'shelljs',
-6 verbose parsed url   href: 'shelljs' }
-7 silly lockFile eb06dd96-shelljs shelljs
-8 verbose lock shelljs /Users/kaiwang/.npm/eb06dd96-shelljs.lock
-9 silly lockFile eb06dd96-shelljs shelljs
-10 silly lockFile eb06dd96-shelljs shelljs
-11 verbose addNamed [ 'shelljs', '' ]
-12 verbose addNamed [ null, '*' ]
-13 silly lockFile 9724384e-shelljs shelljs@
-14 verbose lock shelljs@ /Users/kaiwang/.npm/9724384e-shelljs.lock
-15 silly addNameRange { name: 'shelljs', range: '*', hasData: false }
-16 verbose request where is /shelljs
-17 verbose request registry http://npm-registry.snc1/
-18 verbose request id 389ef277482b291f
-19 verbose url raw /shelljs
-20 verbose url resolving [ 'http://npm-registry.snc1/', './shelljs' ]
-21 verbose url resolved http://npm-registry.snc1/shelljs
-22 verbose request where is http://npm-registry.snc1/shelljs
-23 info trying registry request attempt 1 at 10:39:40
-24 http GET http://npm-registry.snc1/shelljs
-25 http 200 http://npm-registry.snc1/shelljs
-26 silly registry.get cb [ 200,
-26 silly registry.get   { server: 'nginx/1.5.12',
-26 silly registry.get     date: 'Tue, 03 Feb 2015 18:39:32 GMT',
-26 silly registry.get     'content-type': 'application/json',
-26 silly registry.get     'transfer-encoding': 'chunked',
-26 silly registry.get     connection: 'keep-alive',
-26 silly registry.get     vary: 'Accept',
-26 silly registry.get     'content-encoding': 'gzip' } ]
-27 silly addNameRange number 2 { name: 'shelljs', range: '*', hasData: true }
-28 silly addNameRange versions [ 'shelljs',
-28 silly addNameRange   [ '0.0.1',
-28 silly addNameRange     '0.0.2',
-28 silly addNameRange     '0.0.3',
-28 silly addNameRange     '0.0.4',
-28 silly addNameRange     '0.0.5',
-28 silly addNameRange     '0.0.6',
-28 silly addNameRange     '0.0.7',
-28 silly addNameRange     '0.0.8',
-28 silly addNameRange     '0.0.9',
-28 silly addNameRange     '0.1.0',
-28 silly addNameRange     '0.1.1',
-28 silly addNameRange     '0.1.2',
-28 silly addNameRange     '0.1.3',
-28 silly addNameRange     '0.1.4',
-28 silly addNameRange     '0.2.0',
-28 silly addNameRange     '0.2.1',
-28 silly addNameRange     '0.2.2',
-28 silly addNameRange     '0.2.3',
-28 silly addNameRange     '0.2.4',
-28 silly addNameRange     '0.2.5',
-28 silly addNameRange     '0.2.6',
-28 silly addNameRange     '0.3.0',
-28 silly addNameRange     '0.0.1-alpha1',
-28 silly addNameRange     '0.0.2-pre1',
-28 silly addNameRange     '0.0.4-pre1',
-28 silly addNameRange     '0.0.5-pre1',
-28 silly addNameRange     '0.0.5-pre2',
-28 silly addNameRange     '0.0.5-pre3',
-28 silly addNameRange     '0.0.5-pre4',
-28 silly addNameRange     '0.0.6-pre1',
-28 silly addNameRange     '0.0.6-pre2' ] ]
-29 verbose addNamed [ 'shelljs', '0.3.0' ]
-30 verbose addNamed [ '0.3.0', '0.3.0' ]
-31 silly lockFile 7d3918b1-shelljs-0-3-0 shelljs@0.3.0
-32 verbose lock shelljs@0.3.0 /Users/kaiwang/.npm/7d3918b1-shelljs-0-3-0.lock
-33 silly lockFile 7d3918b1-shelljs-0-3-0 shelljs@0.3.0
-34 silly lockFile 7d3918b1-shelljs-0-3-0 shelljs@0.3.0
-35 silly lockFile 9724384e-shelljs shelljs@
-36 silly lockFile 9724384e-shelljs shelljs@
-37 silly resolved [ { name: 'shelljs',
-37 silly resolved     version: '0.3.0',
-37 silly resolved     author: { name: 'Artur Adib', email: 'aadib@mozilla.com' },
-37 silly resolved     description: 'Portable Unix shell commands for Node.js',
-37 silly resolved     keywords: [ 'unix', 'shell', 'makefile', 'make', 'jake', 'synchronous' ],
-37 silly resolved     repository: { type: 'git', url: 'git://github.com/arturadib/shelljs.git' },
-37 silly resolved     license: 'BSD*',
-37 silly resolved     homepage: 'http://github.com/arturadib/shelljs',
-37 silly resolved     main: './shell.js',
-37 silly resolved     scripts: { test: 'node scripts/run-tests' },
-37 silly resolved     bin: { shjs: './bin/shjs' },
-37 silly resolved     dependencies: {},
-37 silly resolved     devDependencies: { jshint: '~2.1.11' },
-37 silly resolved     optionalDependencies: {},
-37 silly resolved     engines: { node: '>=0.8.0' },
-37 silly resolved     bugs: { url: 'https://github.com/arturadib/shelljs/issues' },
-37 silly resolved     _id: 'shelljs@0.3.0',
-37 silly resolved     dist:
-37 silly resolved      { shasum: '3596e6307a781544f591f37da618360f31db57b1',
-37 silly resolved        tarball: 'http://registry.npmjs.org/shelljs/-/shelljs-0.3.0.tgz' },
-37 silly resolved     _from: 'shelljs@',
-37 silly resolved     _npmVersion: '1.3.11',
-37 silly resolved     _npmUser: { name: 'artur', email: 'arturadib@gmail.com' },
-37 silly resolved     maintainers: [ [Object] ],
-37 silly resolved     directories: {},
-37 silly resolved     _shasum: '3596e6307a781544f591f37da618360f31db57b1',
-37 silly resolved     _resolved: 'https://registry.npmjs.org/shelljs/-/shelljs-0.3.0.tgz',
-37 silly resolved     readme: 'ERROR: No README data found!' } ]
-38 info install shelljs@0.3.0 into /usr/local/lib
-39 info installOne shelljs@0.3.0
-40 verbose lib/node_modules/shelljs unbuild
-41 verbose tar unpack /Users/kaiwang/.npm/shelljs/0.3.0/package.tgz
-42 silly lockFile 152d7b50-r-local-lib-node-modules-shelljs tar:///usr/local/lib/node_modules/shelljs
-43 verbose lock tar:///usr/local/lib/node_modules/shelljs /Users/kaiwang/.npm/152d7b50-r-local-lib-node-modules-shelljs.lock
-44 silly lockFile 227148f6-ng-npm-shelljs-0-3-0-package-tgz tar:///Users/kaiwang/.npm/shelljs/0.3.0/package.tgz
-45 verbose lock tar:///Users/kaiwang/.npm/shelljs/0.3.0/package.tgz /Users/kaiwang/.npm/227148f6-ng-npm-shelljs-0-3-0-package-tgz.lock
-46 silly gunzTarPerm modes [ '755', '644' ]
-47 error Error: EACCES, mkdir '/usr/local/lib/node_modules/shelljs'
-47 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/shelljs']
-47 error   errno: 3,
-47 error   code: 'EACCES',
-47 error   path: '/usr/local/lib/node_modules/shelljs',
-47 error   fstream_type: 'Directory',
-47 error   fstream_path: '/usr/local/lib/node_modules/shelljs',
-47 error   fstream_class: 'DirWriter',
-47 error   fstream_stack:
-47 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
-47 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
-47 error      'Object.oncomplete (fs.js:107:15)' ] }
-48 error Please try running this command again as root/Administrator.
-49 error System Darwin 13.4.0
-50 error command "node" "/usr/local/bin/npm" "install" "-g" "shelljs"
-51 error cwd /Users/kaiwang/Projects/test/todUploader
-52 error node -v v0.10.33
-53 error npm -v 1.4.28
-54 error path /usr/local/lib/node_modules/shelljs
-55 error fstream_path /usr/local/lib/node_modules/shelljs
-56 error fstream_type Directory
-57 error fstream_class DirWriter
-58 error code EACCES
-59 error errno 3
-60 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/shelljs'
-61 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
-61 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
-61 error fstream_stack Object.oncomplete (fs.js:107:15)
-62 verbose exit [ 3, true ]
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info prestart tod-uploader@0.0.0
+6 info start tod-uploader@0.0.0
+7 verbose unsafe-perm in lifecycle true
+8 info tod-uploader@0.0.0 Failed to exec start script
+9 error tod-uploader@0.0.0 start: `node server/app.js`
+9 error Exit status 8
+10 error Failed at the tod-uploader@0.0.0 start script.
+10 error This is most likely a problem with the tod-uploader package,
+10 error not with npm itself.
+10 error Tell the author that this fails on your system:
+10 error     node server/app.js
+10 error You can get their info via:
+10 error     npm owner ls tod-uploader
+10 error There is likely additional logging output above.
+11 error System Darwin 13.4.0
+12 error command "node" "/usr/local/bin/npm" "start"
+13 error cwd /Users/kaiwang/Projects/test/todUploader
+14 error node -v v0.10.33
+15 error npm -v 1.4.28
+16 error code ELIFECYCLE
+17 verbose exit [ 1, true ]
