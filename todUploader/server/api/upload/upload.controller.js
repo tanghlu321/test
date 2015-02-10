@@ -26,10 +26,7 @@ var checkin = function(fileName, callback){
     // include the source CVS file name and the user who is making the upload
     // this will help diagnoze issues with a given checkin
     exec('git commit -m "Updating TOD ymls cr=sparta"', function (err, stdout, stderr){
-      printLogs('git commit error:', err, stdout, stderr);
-      // if (err !== null){
-      //   return callback(err);
-      // } 
+      printLogs('git commit error:', err, stdout, stderr); 
       
       exec('git push origin master', function (err, stdout, stderr){
         printLogs('git push error:', err, stdout, stderr);
