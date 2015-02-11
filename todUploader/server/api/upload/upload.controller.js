@@ -44,6 +44,7 @@ var afterPullMaster = function(err, stdout, stderr, file, callback){
   }
   exec('ruby tod_configs.rb ' + file.path, function(err, stdout, stderr){
     afterExecRuby(err, stdout, stderr, function(err){
+      console.log("abc" + err);
       return callback(err);
     });
   });
@@ -95,7 +96,7 @@ exports.create = function (req, res, next) {
 
   exec('cd /Users/kaiwang/Projects/test && git pull origin master', function(err, stdout, stderr){
     afterPullMaster(err, stdout, stderr, file, res, function(err){
-      if (err == null)
+      if (err === null)
         res.status(200).end();
       else
         res.status(500).send({Error: err.message});
