@@ -77,14 +77,14 @@ var afterGitCommit = function(err, stdout,stderr, callback){
   
   exec('git push origin master', function(err, stdout, stderr){
     afterGitPush(err, stdout, stderr, function(err){
-      callback(err);
+      return callback(err);
     });
   });
 }
 
 function afterGitPush(err, stdout, stderr, callback){
   printLogs('git push error:', err, stdout, stderr);
-  callback(err);
+  return callback(err);
 }
 
 exports.create = function (req, res, next) {
