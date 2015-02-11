@@ -3,10 +3,11 @@
 // Development specific configuration
 // ==================================
 module.exports = {
-  // MongoDB connection options
-  mongo: {
-    uri: 'mongodb://localhost/toduploader-dev'
-  },
+	
+  giturl: "git@github.groupondev.com:Push/tod_automation_test_tempory.git",
 
-  seedDB: true
+  // Server port
+  port:     process.env.OPENSHIFT_NODEJS_PORT ||
+            process.env.PORT ||
+            9000
 };
