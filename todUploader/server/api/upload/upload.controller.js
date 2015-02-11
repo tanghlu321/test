@@ -100,7 +100,6 @@ exports.create = function (req, res, next) {
         res.status(200).end();
       else
         res.status(500).send({Error: err.message});
-        return next();
     });
   });
 };
