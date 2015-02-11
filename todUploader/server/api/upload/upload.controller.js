@@ -52,17 +52,22 @@ var afterGitAdd = function(err, stdout, stderr, callback){
 var afterGitCommit = function(err, stdout,stderr, callback){
   printLogs('git commit error:', err, stdout, stderr);
   if (err !== null){
+
    return callback(new Error('Unable to commit. ' + err.message));
   }
 
-  exec('cd /Users/kaiwang/Projects/test/ && git push origin master', function(err, stdout, stderr){
+  exec('cd /Users/kaiwang/Projects/test/ && git push origin dev/improve', function(err, stdout, stderr){
     afterGitPush(err, stdout, stderr, callback);
   });
 }
 
 function afterGitPush(err, stdout, stderr, callback){
   printLogs('git push error:', err, stdout, stderr);
-  return callback(err);
+  if (err !== null){
+    exec('git reset --hard HEAD~1');
+    return callback(new Error('Unable to Git push, reset the repo. Please try again'));
+  }
+  return callback(null);
 }
 
 exports.create = function (req, res, next) {
@@ -70,10 +75,12 @@ exports.create = function (req, res, next) {
     , uploadPath = path.normalize('./uploads')
     , file = req.files.file;
 
-  exec('cd /Users/kaiwang/Projects/test/ && git pull origin master', function(err, stdout, stderr){
+  //add git reset to origin master
+  exec('cd /Users/kaiwang/Projects/test/ && git pull origin dev/improve', function(err, stdout, stderr){
     afterPullMaster(err, stdout, stderr, file, function(err){
       if (err === null)
         res.status(200).end();
+      //add the sha
       else
         res.status(500).send({Error: err.message});
     });
