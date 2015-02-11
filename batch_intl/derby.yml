@@ -1,36 +1,36 @@
 --- 
-preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/derby/*/translated_results/rmsplit/tod_split/MAIN_SEND/
-countryCode: UK
-injectorClass: msys
-hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/derby/*/translated_results/rmsplit/tod_split/MAIN_SEND/
-timeZone: Europe/London
-batchType: g1
-headers: 
-  segment: default
-  campaignGroup: derby
-  businessGroup: g1
-emailName: daily-email_derby_rm
-todOverrides: 
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/derby/*/translated_results/rmsplit/tod_split/CONTROL_1/
-  cronTime: 0 45 06 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/derby/*/translated_results/rmsplit/tod_split/CONTROL_2/
-  cronTime: 0 45 06 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/derby/*/translated_results/rmsplit/tod_split/TOD_1/
-  cronTime: 0 30 03 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/derby/*/translated_results/rmsplit/tod_split/TOD_2/
-  cronTime: 0 30 06 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/derby/*/translated_results/rmsplit/tod_split/TOD_3/
-  cronTime: 0 30 08 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/derby/*/translated_results/rmsplit/tod_split/TOD_4/
-  cronTime: 0 45 06 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/derby/*/translated_results/rmsplit/tod_split/TOD_5/
-  cronTime: 0 45 06 * * ?
 cronTime: 0 45 06 * * ?
-htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
-preflightEmailAddress: preflights-uk@groupon.com
-subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
-preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
-fromLine: Groupon <noreply@r.grouponmail.co.uk>
+batchType: g1
+todOverrides: 
+- cronTime: 0 45 06 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/derby/*/translated_results/rmsplit/tod_split/CONTROL_1/
+- cronTime: 0 45 06 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/derby/*/translated_results/rmsplit/tod_split/CONTROL_2/
+- cronTime: 0 30 03 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/derby/*/translated_results/rmsplit/tod_split/TOD_1/
+- cronTime: 0 30 06 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/derby/*/translated_results/rmsplit/tod_split/TOD_2/
+- cronTime: 0 30 08 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/derby/*/translated_results/rmsplit/tod_split/TOD_3/
+- cronTime: 0 45 06 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/derby/*/translated_results/rmsplit/tod_split/TOD_4/
+- cronTime: 0 45 06 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/derby/*/translated_results/rmsplit/tod_split/TOD_5/
+timeZone: Europe/London
 audienceSourceType: hdfs
+preflightEmailAddress: preflights-uk@groupon.com
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
+countryCode: UK
 emailType: batch
+subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
+emailName: daily-email_derby_rm
+preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/derby/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+fromLine: Groupon <noreply@r.grouponmail.co.uk>
+hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/derby/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+injectorClass: msys
 subjectLine: Today's Groupon Deal
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+headers: 
+  businessGroup: g1
+  campaignGroup: derby
+  segment: default
