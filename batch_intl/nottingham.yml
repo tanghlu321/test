@@ -1,36 +1,36 @@
 --- 
-countryCode: UK
-audienceSourceType: hdfs
-todOverrides: 
-- cronTime: 0 00 07 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/nottingham/*/translated_results/rmsplit/tod_split/CONTROL_1/
-- cronTime: 0 00 07 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/nottingham/*/translated_results/rmsplit/tod_split/CONTROL_2/
-- cronTime: 0 30 03 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/nottingham/*/translated_results/rmsplit/tod_split/TOD_1/
-- cronTime: 0 30 06 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/nottingham/*/translated_results/rmsplit/tod_split/TOD_2/
-- cronTime: 0 30 08 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/nottingham/*/translated_results/rmsplit/tod_split/TOD_3/
-- cronTime: 0 00 07 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/nottingham/*/translated_results/rmsplit/tod_split/TOD_4/
-- cronTime: 0 00 07 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/nottingham/*/translated_results/rmsplit/tod_split/TOD_5/
-cronTime: 0 00 07 * * ?
-preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
-htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
-preflightEmailAddress: preflights-uk@groupon.com
-headers: 
-  campaignGroup: nottingham
-  businessGroup: g1
-  segment: default
-fromLine: Groupon <noreply@r.grouponmail.co.uk>
-hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/nottingham/*/translated_results/rmsplit/tod_split/MAIN_SEND/
 subjectLine: Today's Groupon Deal
-batchType: g1
-preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/nottingham/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+countryCode: UK
 subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
-timeZone: Europe/London
-injectorClass: msys
+audienceSourceType: hdfs
 emailName: daily-email_nottingham_rm
+timeZone: Europe/London
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
+hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/nottingham/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+headers: 
+  segment: default
+  businessGroup: g1
+  campaignGroup: nottingham
 emailType: batch
+injectorClass: msys
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+fromLine: Groupon <noreply@r.grouponmail.co.uk>
+todOverrides: 
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/nottingham/*/translated_results/rmsplit/tod_split/CONTROL_1/
+  cronTime: 0 00 07 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/nottingham/*/translated_results/rmsplit/tod_split/CONTROL_2/
+  cronTime: 0 00 07 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/nottingham/*/translated_results/rmsplit/tod_split/TOD_1/
+  cronTime: 0 30 03 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/nottingham/*/translated_results/rmsplit/tod_split/TOD_2/
+  cronTime: 0 30 06 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/nottingham/*/translated_results/rmsplit/tod_split/TOD_3/
+  cronTime: 0 30 08 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/nottingham/*/translated_results/rmsplit/tod_split/TOD_4/
+  cronTime: 0 00 07 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/nottingham/*/translated_results/rmsplit/tod_split/TOD_5/
+  cronTime: 0 00 07 * * ?
+preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/nottingham/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+batchType: g1
+preflightEmailAddress: preflights-uk@groupon.com
+cronTime: 0 00 07 * * ?
