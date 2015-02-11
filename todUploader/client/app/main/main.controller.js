@@ -22,7 +22,7 @@ angular.module('todUploaderApp')
           console.log('progress: ' + parseInt(100.0 * evt.loaded / evt.total) + '% file :'+ evt.config.file.name);
         }).success(function(data, status, headers, config) {
           if (status == 200) {
-            $scope.message = "Success! Please check the updates on Github";
+            $scope.message = "Success! Please check the updates on Github for safety";
           }
           // file is uploaded successfully
           console.log('file ' + config.file.name + 'is uploaded successfully. Response: ' + data);
