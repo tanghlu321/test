@@ -24,8 +24,6 @@ angular.module('todUploaderApp')
           if (status == 200) {
             $scope.message = "Success! Please check the updates on Github for safety";
           }
-          // file is uploaded successfully
-          console.log('file ' + config.file.name + 'is uploaded successfully. Response: ' + data);
         }).error(function(data, status, headers, config){
           $scope.message = JSON.stringify(data);
         })
