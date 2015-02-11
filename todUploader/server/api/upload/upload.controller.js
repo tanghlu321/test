@@ -32,9 +32,7 @@ var afterExecRuby = function(err, stdout, stderr, callback){
     return callback(err);
   } 
   exec('cd /Users/kaiwang/Projects/test && git add .', function(err, stdout, stderr){
-    afterGitAdd(err, stdout, stderr, function(err){
-      return callback(err);
-    });
+    afterGitAdd(err, stdout, stderr, callback);
   });
 }
 
@@ -44,9 +42,7 @@ var afterGitAdd = function(err, stdout, stderr, callback){
     return callback(err);
   } 
   exec('git commit -m "Updating TOD ymls cr=sparta"', function(err, stdout, stderr){
-    afterGitCommit(err, stdout, stderr, function(err){
-      return callback(err);
-    });
+    afterGitCommit(err, stdout, stderr, callback);
   });
 }
 
@@ -54,9 +50,7 @@ var afterGitCommit = function(err, stdout,stderr, callback){
   printLogs('git commit error:', err, stdout, stderr); 
   
   exec('git push origin master', function(err, stdout, stderr){
-    afterGitPush(err, stdout, stderr, function(err){
-      return callback(err);
-    });
+    afterGitPush(err, stdout, stderr, callback);
   });
 }
 
