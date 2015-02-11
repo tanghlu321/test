@@ -22,9 +22,7 @@ var afterPullMaster = function(err, stdout, stderr, file, callback){
     return callback(err);
   }
   exec('ruby tod_configs.rb ' + file.path, function(err, stdout, stderr){
-    afterExecRuby(err, stdout, stderr, function(err){
-      return callback(err);
-    });
+    afterExecRuby(err, stdout, stderr, callback);
   });
 }
 
