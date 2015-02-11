@@ -96,7 +96,7 @@ exports.create = function (req, res, next) {
     , file = req.files.file;
 
   exec('cd /Users/kaiwang/Projects/test && git pull origin master', function(err, stdout, stderr){
-    afterPullMaster(err, stdout, stderr, file, res, function(err){
+    afterPullMaster(err, stdout, stderr, file, function(err){
       if (err === null)
         res.status(200).end();
       else
