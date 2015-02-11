@@ -30,8 +30,10 @@ var afterExecRuby = function(err, stdout, stderr, callback){
   printLogs('update .yaml files error:', err, stdout, stderr);
   if (err !== null){
     return callback(err);
-  } 
-  exec('cd /Users/kaiwang/Projects/test && git add .', function(err, stdout, stderr){
+  }
+  var yml = '\.yml$';
+  //exec('cd /Users/kaiwang/Projects/test/ && git ls-files /Users/kaiwang/Projects/test/batch_intl | grep yml | xargs git add', function(err, stdout, stderr){
+    exec('cd /Users/kaiwang/Projects/test/ && git add .', function(err, stdout, stderr){
     afterGitAdd(err, stdout, stderr, callback);
   });
 }
@@ -40,16 +42,19 @@ var afterGitAdd = function(err, stdout, stderr, callback){
   printLogs('git add error:', err, stdout, stderr);
   if (err !== null){
     return callback(err);
-  } 
-  exec('git commit -m "Updating TOD ymls cr=sparta"', function(err, stdout, stderr){
+  }
+  exec('cd /Users/kaiwang/Projects/test/ && git commit -m "Updating TOD ymls cr=sparta"', function(err, stdout, stderr){
     afterGitCommit(err, stdout, stderr, callback);
   });
 }
 
 var afterGitCommit = function(err, stdout,stderr, callback){
-  printLogs('git commit error:', err, stdout, stderr); 
-  
-  exec('git push origin master', function(err, stdout, stderr){
+  printLogs('git commit error:', err, stdout, stderr);
+  //if (err !== null){
+  //  return callback(err);
+  //}
+
+  exec('cd /Users/kaiwang/Projects/test/ && git push origin master', function(err, stdout, stderr){
     afterGitPush(err, stdout, stderr, callback);
   });
 }
@@ -64,7 +69,7 @@ exports.create = function (req, res, next) {
     , uploadPath = path.normalize('./uploads')
     , file = req.files.file;
 
-  exec('cd /Users/kaiwang/Projects/test && git pull origin master', function(err, stdout, stderr){
+  exec('cd /Users/kaiwang/Projects/test/ && git pull origin master', function(err, stdout, stderr){
     afterPullMaster(err, stdout, stderr, file, function(err){
       if (err === null)
         res.status(200).end();
@@ -73,3 +78,8 @@ exports.create = function (req, res, next) {
     });
   });
 };
+
+
+
+
+
