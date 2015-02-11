@@ -16,27 +16,6 @@ var printLogs = function(message, err, stdout, stderr){
   console.log('stderr: ' + stderr);
 }
 
-// var checkin = function(fileName, callback){
-//   exec('cd /Users/kaiwang/Projects/test && git add .', function (err, stdout, stderr){
-//     printLogs('git add error:', err, stdout, stderr);
-//     if (err !== null){
-//       return callback(err);
-//     } 
-
-//     exec('git commit -m "Updating TOD ymls cr=sparta"', function (err, stdout, stderr){
-//       printLogs('git commit error:', err, stdout, stderr); 
-      
-//       exec('git push origin master', function (err, stdout, stderr){
-//         printLogs('git push error:', err, stdout, stderr);
-//         if (err !== null){
-//           return callback(err);
-//         } 
-//       });
-//     });
-//     return callback(null);
-//   });
-// };
-
 var afterPullMaster = function(err, stdout, stderr, file, callback){
   printLogs('git pull error:', err, stdout, stderr);
   if (err !== null){
@@ -44,8 +23,6 @@ var afterPullMaster = function(err, stdout, stderr, file, callback){
   }
   exec('ruby tod_configs.rb ' + file.path, function(err, stdout, stderr){
     afterExecRuby(err, stdout, stderr, function(err){
-      console.log(callback);
-      console.log("abc" + err);
       return callback(err);
     });
   });
