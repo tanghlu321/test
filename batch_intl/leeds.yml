@@ -1,9 +1,24 @@
 ---
-emailType: batch
 emailName: daily-email_leeds_rm
-cronTime: 0 00 07 * * ?
-timeZone: Europe/London
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
 injectorClass: msys
+emailType: batch
+subjectLine: Today's Groupon Deal
+subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+cronTime: 0 00 07 * * ?
+preflightEmailAddress: preflights-uk@groupon.com
+audienceSourceType: hdfs
+hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/leeds/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/leeds/*/translated_results/rmsplit/tod_split/PREFLIGHT/
+batchType: g1
+fromLine: Groupon <noreply@r.grouponmail.co.uk>
+countryCode: UK
+timeZone: Europe/London
+headers:
+  businessGroup: g1
+  campaignGroup: leeds
+  segment: default
 todOverrides:
 - cronTime: 0 00 07 * * ?
   hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/leeds/*/translated_results/rmsplit/tod_split/CONTROL_1/
@@ -19,18 +34,3 @@ todOverrides:
   hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/leeds/*/translated_results/rmsplit/tod_split/TOD_4/
 - cronTime: 0 00 07 * * ?
   hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/leeds/*/translated_results/rmsplit/tod_split/TOD_5/
-subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
-preflightEmailAddress: preflights-uk@groupon.com
-htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
-batchType: g1
-countryCode: UK
-audienceSourceType: hdfs
-hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/leeds/*/translated_results/rmsplit/tod_split/MAIN_SEND/
-preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
-subjectLine: Today's Groupon Deal
-preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/leeds/*/translated_results/rmsplit/tod_split/PREFLIGHT/
-fromLine: Groupon <noreply@r.grouponmail.co.uk>
-headers:
-  campaignGroup: leeds
-  segment: default
-  businessGroup: g1
