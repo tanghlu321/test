@@ -4,6 +4,7 @@ var path = require('path');
 var _ = require('lodash');
 
 var exec = require("child_process").exec;
+var config = require('./config/environment');
 
 // Get list of uploads
 exports.index = function(req, res) {
