@@ -4,7 +4,6 @@ var path = require('path');
 var _ = require('lodash');
 
 var exec = require("child_process").exec;
-var config = require('./config/environment');
 
 // Get list of uploads
 exports.index = function(req, res) {
@@ -64,8 +63,9 @@ var afterGitCommit = function(err, stdout,stderr, callback){
 function afterGitPush(err, stdout, stderr, callback){
   printLogs('git push error:', err, stdout, stderr);
   if (err !== null){
-    exec('git reset --hard HEAD~1');
-    return callback(new Error('Unable to Git push, reset the repo. Please try again'));
+    exec('git reset --hard HEAD~1', function(err, stdout, stderr){
+      return callback(new Error('Unable to Git push, reset the repo. Please try again'));
+    });
   }
   return callback(null);
 }
