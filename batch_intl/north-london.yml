@@ -1,36 +1,36 @@
 --- 
-countryCode: UK
-injectorClass: msys
-subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
-subjectLine: Today's Groupon Deal
-preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/north-london/*/translated_results/rmsplit/tod_split/PREFLIGHT/
-preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
-batchType: g1
-headers: 
-  segment: default
-  campaignGroup: north-london
-  businessGroup: g1
-timeZone: Europe/London
-hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/north-london/*/translated_results/rmsplit/tod_split/MAIN_SEND/
-audienceSourceType: hdfs
-preflightEmailAddress: preflights-uk@groupon.com
-todOverrides: 
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/north-london/*/translated_results/rmsplit/tod_split/CONTROL_1/
-  cronTime: 0 30 05 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/north-london/*/translated_results/rmsplit/tod_split/CONTROL_2/
-  cronTime: 0 30 05 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/north-london/*/translated_results/rmsplit/tod_split/TOD_1/
-  cronTime: 0 30 03 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/north-london/*/translated_results/rmsplit/tod_split/TOD_2/
-  cronTime: 0 30 06 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/north-london/*/translated_results/rmsplit/tod_split/TOD_3/
-  cronTime: 0 30 08 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/north-london/*/translated_results/rmsplit/tod_split/TOD_4/
-  cronTime: 0 30 05 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/north-london/*/translated_results/rmsplit/tod_split/TOD_5/
-  cronTime: 0 30 05 * * ?
 cronTime: 0 30 05 * * ?
-fromLine: Groupon <noreply@r.grouponmail.co.uk>
-emailName: daily-email_north-london_rm
 emailType: batch
 htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
+fromLine: Groupon <noreply@r.grouponmail.co.uk>
+timeZone: Europe/London
+headers: 
+  businessGroup: g1
+  segment: default
+  campaignGroup: north-london
+subjectLine: Today's Groupon Deal
+injectorClass: msys
+preflightEmailAddress: preflights-uk@groupon.com
+todOverrides: 
+- cronTime: 0 30 05 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/north-london/*/translated_results/rmsplit/tod_split/CONTROL_1/
+- cronTime: 0 30 05 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/north-london/*/translated_results/rmsplit/tod_split/CONTROL_2/
+- cronTime: 0 30 03 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/north-london/*/translated_results/rmsplit/tod_split/TOD_1/
+- cronTime: 0 30 06 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/north-london/*/translated_results/rmsplit/tod_split/TOD_2/
+- cronTime: 0 30 08 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/north-london/*/translated_results/rmsplit/tod_split/TOD_3/
+- cronTime: 0 30 05 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/north-london/*/translated_results/rmsplit/tod_split/TOD_4/
+- cronTime: 0 30 05 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/north-london/*/translated_results/rmsplit/tod_split/TOD_5/
+batchType: g1
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+emailName: daily-email_north-london_rm
+audienceSourceType: hdfs
+preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/north-london/*/translated_results/rmsplit/tod_split/PREFLIGHT/
+subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
+countryCode: UK
+hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/north-london/*/translated_results/rmsplit/tod_split/MAIN_SEND/

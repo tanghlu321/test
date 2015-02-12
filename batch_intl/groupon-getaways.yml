@@ -1,36 +1,36 @@
 --- 
-countryCode: UK
-injectorClass: msys
-subjectLineTemplateName: layouts/daily_deal/city_deals/getaways_subjectline.ftl
-subjectLine: Today's Groupon Deal
-preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/groupon-getaways/*/translated_results/rmsplit/tod_split/MAIN_SEND/
-preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
-batchType: 2t
-headers: 
-  segment: default
-  campaignGroup: auto
-  businessGroup: getaways
-timeZone: Europe/London
-hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/groupon-getaways/*/translated_results/rmsplit/tod_split/MAIN_SEND/
-audienceSourceType: hdfs
-preflightEmailAddress: preflights-uk@groupon.com
-todOverrides: 
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/groupon-getaways/*/translated_results/rmsplit/tod_split/CONTROL_1/
-  cronTime: 0 15 10 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/groupon-getaways/*/translated_results/rmsplit/tod_split/CONTROL_2/
-  cronTime: 0 15 10 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/groupon-getaways/*/translated_results/rmsplit/tod_split/TOD_1/
-  cronTime: 0 30 16 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/groupon-getaways/*/translated_results/rmsplit/tod_split/TOD_2/
-  cronTime: 0 30 18 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/groupon-getaways/*/translated_results/rmsplit/tod_split/TOD_3/
-  cronTime: 0 30 14 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/groupon-getaways/*/translated_results/rmsplit/tod_split/TOD_4/
-  cronTime: 0 15 10 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/groupon-getaways/*/translated_results/rmsplit/tod_split/TOD_5/
-  cronTime: 0 15 10 * * ?
 cronTime: 0 15 10 * * ?
-fromLine: Groupon Getaways <noreply@r.grouponmail.co.uk>
-emailName: channel-getaways_uk-groupon-getaways_rm
 emailType: batch
 htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
+fromLine: Groupon Getaways <noreply@r.grouponmail.co.uk>
+timeZone: Europe/London
+headers: 
+  businessGroup: getaways
+  segment: default
+  campaignGroup: auto
+subjectLine: Today's Groupon Deal
+injectorClass: msys
+preflightEmailAddress: preflights-uk@groupon.com
+todOverrides: 
+- cronTime: 0 15 10 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/groupon-getaways/*/translated_results/rmsplit/tod_split/CONTROL_1/
+- cronTime: 0 15 10 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/groupon-getaways/*/translated_results/rmsplit/tod_split/CONTROL_2/
+- cronTime: 0 30 16 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/groupon-getaways/*/translated_results/rmsplit/tod_split/TOD_1/
+- cronTime: 0 30 18 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/groupon-getaways/*/translated_results/rmsplit/tod_split/TOD_2/
+- cronTime: 0 30 14 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/groupon-getaways/*/translated_results/rmsplit/tod_split/TOD_3/
+- cronTime: 0 15 10 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/groupon-getaways/*/translated_results/rmsplit/tod_split/TOD_4/
+- cronTime: 0 15 10 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/groupon-getaways/*/translated_results/rmsplit/tod_split/TOD_5/
+batchType: 2t
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+emailName: channel-getaways_uk-groupon-getaways_rm
+audienceSourceType: hdfs
+preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/groupon-getaways/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+subjectLineTemplateName: layouts/daily_deal/city_deals/getaways_subjectline.ftl
+countryCode: UK
+hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/groupon-getaways/*/translated_results/rmsplit/tod_split/MAIN_SEND/
