@@ -96,7 +96,7 @@ exports.create = function (req, res, next) {
   exec(config.git_fetch_origin, function(err, stdout, stderr){
     afterGitFetchOrigin(err, stdout, stderr, file, function(err){
       if (err === null)
-        res.status(200).send({Github url: config.git_url});
+        res.status(200).send({Github_url: config.git_url});
       else
         res.status(500).send({Error: err.message});
     });
