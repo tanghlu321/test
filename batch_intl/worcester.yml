@@ -1,36 +1,36 @@
 --- 
-todOverrides: 
-- cronTime: 0 30 06 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/worcester/*/translated_results/rmsplit/tod_split/CONTROL_1/
-- cronTime: 0 30 06 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/worcester/*/translated_results/rmsplit/tod_split/CONTROL_2/
-- cronTime: 0 30 03 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/worcester/*/translated_results/rmsplit/tod_split/TOD_1/
-- cronTime: 0 30 06 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/worcester/*/translated_results/rmsplit/tod_split/TOD_2/
-- cronTime: 0 30 08 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/worcester/*/translated_results/rmsplit/tod_split/TOD_3/
-- cronTime: 0 30 06 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/worcester/*/translated_results/rmsplit/tod_split/TOD_4/
-- cronTime: 0 30 06 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/worcester/*/translated_results/rmsplit/tod_split/TOD_5/
-batchType: g1
-preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
-audienceSourceType: hdfs
-htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
-cronTime: 0 30 06 * * ?
-fromLine: Groupon <noreply@r.grouponmail.co.uk>
-emailType: batch
-headers: 
-  segment: default
-  campaignGroup: worcester
-  businessGroup: g1
 countryCode: UK
-preflightEmailAddress: preflights-uk@groupon.com
-subjectLine: Today's Groupon Deal
-hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/worcester/*/translated_results/rmsplit/tod_split/MAIN_SEND/
-emailName: daily-email_worcester_rm
+audienceSourceType: hdfs
+todOverrides: 
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/worcester/*/translated_results/rmsplit/tod_split/CONTROL_1/
+  cronTime: 0 30 06 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/worcester/*/translated_results/rmsplit/tod_split/CONTROL_2/
+  cronTime: 0 30 06 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/worcester/*/translated_results/rmsplit/tod_split/TOD_1/
+  cronTime: 0 30 03 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/worcester/*/translated_results/rmsplit/tod_split/TOD_2/
+  cronTime: 0 30 06 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/worcester/*/translated_results/rmsplit/tod_split/TOD_3/
+  cronTime: 0 30 08 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/worcester/*/translated_results/rmsplit/tod_split/TOD_4/
+  cronTime: 0 30 06 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/worcester/*/translated_results/rmsplit/tod_split/TOD_5/
+  cronTime: 0 30 06 * * ?
+batchType: g1
+fromLine: Groupon <noreply@r.grouponmail.co.uk>
 timeZone: Europe/London
-subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
-preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/worcester/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/worcester/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+cronTime: 0 30 06 * * ?
+subjectLine: Today's Groupon Deal
+preflightEmailAddress: preflights-uk@groupon.com
+emailType: batch
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+headers: 
+  businessGroup: g1
+  campaignGroup: worcester
+  segment: default
 injectorClass: msys
+preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/worcester/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
+emailName: daily-email_worcester_rm
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
