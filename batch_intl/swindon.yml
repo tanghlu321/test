@@ -1,5 +1,15 @@
 --- 
+subjectLine: Today's Groupon Deal
+preflightEmailAddress: preflights-uk@groupon.com
+countryCode: UK
+injectorClass: msys
+batchType: g1
+emailName: daily-email_swindon_rm
+cronTime: 0 30 06 * * ?
 htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
+fromLine: Groupon <noreply@r.grouponmail.co.uk>
+preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/swindon/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
 todOverrides: 
 - cronTime: 0 30 06 * * ?
   hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/swindon/*/translated_results/rmsplit/tod_split/CONTROL_1/
@@ -15,22 +25,12 @@ todOverrides:
   hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/swindon/*/translated_results/rmsplit/tod_split/TOD_4/
 - cronTime: 0 30 06 * * ?
   hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/swindon/*/translated_results/rmsplit/tod_split/TOD_5/
-subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
-countryCode: UK
-preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/swindon/*/translated_results/rmsplit/tod_split/MAIN_SEND/
-cronTime: 0 30 06 * * ?
-hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/swindon/*/translated_results/rmsplit/tod_split/MAIN_SEND/
-preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
-fromLine: Groupon <noreply@r.grouponmail.co.uk>
-batchType: g1
+audienceSourceType: hdfs
 timeZone: Europe/London
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
 headers: 
-  campaignGroup: swindon
   segment: default
   businessGroup: g1
-preflightEmailAddress: preflights-uk@groupon.com
-subjectLine: Today's Groupon Deal
+  campaignGroup: swindon
 emailType: batch
-audienceSourceType: hdfs
-injectorClass: msys
-emailName: daily-email_swindon_rm
+hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/swindon/*/translated_results/rmsplit/tod_split/MAIN_SEND/
