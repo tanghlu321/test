@@ -52,7 +52,7 @@ var afterGitCommit = function(err, stdout,stderr, callback){
   printLogs('git commit error:', err, stdout, stderr);
   if (err !== null){
 
-   return callback(new Error('Unable to commit. ' + stdout.message));
+   return callback(new Error('Unable to commit. ' + stdout));
   }
 
   exec('cd /Users/kaiwang/Projects/test/ && git push origin dev/improve', function(err, stdout, stderr){
