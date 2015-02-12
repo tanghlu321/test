@@ -1,10 +1,15 @@
----
-preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
-fromLine: Groupon <noreply@r.grouponmail.co.uk>
+--- 
+headers: 
+  segment: default
+  businessGroup: g1
+  campaignGroup: wolverhampton
 subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
-hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/wolverhampton/*/translated_results/rmsplit/tod_split/MAIN_SEND/
-cronTime: 0 30 06 * * ?
-todOverrides:
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+batchType: g1
+emailName: daily-email_wolverhampton_rm
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
+injectorClass: msys
+todOverrides: 
 - hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/wolverhampton/*/translated_results/rmsplit/tod_split/CONTROL_1/
   cronTime: 0 30 06 * * ?
 - hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/wolverhampton/*/translated_results/rmsplit/tod_split/CONTROL_2/
@@ -19,18 +24,13 @@ todOverrides:
   cronTime: 0 30 06 * * ?
 - hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/wolverhampton/*/translated_results/rmsplit/tod_split/TOD_5/
   cronTime: 0 30 06 * * ?
-timeZone: Europe/London
-countryCode: UK
-emailName: daily-email_wolverhampton_rm
-subjectLine: Today's Groupon Deal
-preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/wolverhampton/*/translated_results/rmsplit/tod_split/MAIN_SEND/
-injectorClass: msys
-htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
-preflightEmailAddress: preflights-uk@groupon.com
+hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/wolverhampton/*/translated_results/rmsplit/tod_split/MAIN_SEND/
 emailType: batch
-headers:
-  segment: default
-  campaignGroup: wolverhampton
-  businessGroup: g1
-batchType: g1
+countryCode: UK
+preflightEmailAddress: preflights-uk@groupon.com
+preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/wolverhampton/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+fromLine: Groupon <noreply@r.grouponmail.co.uk>
+subjectLine: Today's Groupon Deal
+cronTime: 0 30 06 * * ?
 audienceSourceType: hdfs
+timeZone: Europe/London
