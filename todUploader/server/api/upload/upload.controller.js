@@ -16,6 +16,24 @@ var printLogs = function(message, err, stdout, stderr){
   console.log('stderr: ' + stderr);
 }
 
+var afterGitFetchOrigin = function(err, stdout, stderr, file, callback){
+  printLogs('git fetch origin error:', err, stdout, stderr);
+  if (err !== null)
+    return callback(err);
+  exec(config.git_reset_origin, function(err, stdout, stderr){
+    afterGitResetOrigin(err, stdout, stderr, file, callback);
+  });
+}
+
+var afterGitResetOrigin = function(err, stdout, stderr, file, callback){
+  printLogs('git reset origin error:', err, stdout, stderr);
+  if (err !== null)
+    return callback(err);
+  exec(config.git_pull, function(err, stdout, stderr){
+      afterPullMaster(err, stdout, stderr, file, callback);
+  });
+}
+
 var afterPullMaster = function(err, stdout, stderr, file, callback){
   printLogs('git pull error:', err, stdout, stderr);
   if (err !== null){
@@ -31,9 +49,8 @@ var afterExecRuby = function(err, stdout, stderr, callback){
   if (err !== null){
     return callback(err);
   }
-  var yml = '\.yml$';
-    exec('cd /Users/kaiwang/Projects/test/ && git ls-files /Users/kaiwang/Projects/test/batch_intl | grep yml | xargs git add', function(err, stdout, stderr){
-    //exec('cd /Users/kaiwang/Projects/test/ && git add .', function(err, stdout, stderr){
+  
+    exec(config.git_add, function(err, stdout, stderr){
     afterGitAdd(err, stdout, stderr, callback);
   });
 }
@@ -43,7 +60,7 @@ var afterGitAdd = function(err, stdout, stderr, callback){
   if (err !== null){
     return callback(err);
   }
-  exec('cd /Users/kaiwang/Projects/test/ && git commit -m "Updating TOD ymls cr=sparta"', function(err, stdout, stderr){
+  exec(config.git_commit, function(err, stdout, stderr){
     afterGitCommit(err, stdout, stderr, callback);
   });
 }
@@ -55,7 +72,7 @@ var afterGitCommit = function(err, stdout,stderr, callback){
    return callback(new Error('Unable to commit. ' + stdout));
   }
 
-  exec('cd /Users/kaiwang/Projects/test/ && git push origin dev/improve', function(err, stdout, stderr){
+  exec(config.git_push, function(err, stdout, stderr){
     afterGitPush(err, stdout, stderr, callback);
   });
 }
@@ -75,13 +92,8 @@ exports.create = function (req, res, next) {
     , uploadPath = path.normalize('./uploads')
     , file = req.files.file;
 
-  //add git reset to origin master
-  //git fetch origin
-  //git reset --hard origin/master
-  var local_path = config.path;
-  console.log(config.path);
-  exec('cd local_path && git pull origin dev/improve', function(err, stdout, stderr){
-    afterPullMaster(err, stdout, stderr, file, function(err){
+  exec(config.git_fetch_origin, function(err, stdout, stderr){
+    afterGitFetchOrigin(err, stdout, stderr, file, function(err){
       if (err === null)
         res.status(200).end();
       else
