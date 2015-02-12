@@ -1,15 +1,12 @@
 --- 
-htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
-emailName: daily-email_edinburgh_rm
-batchType: g1
-fromLine: Groupon <noreply@r.grouponmail.co.uk>
-cronTime: 0 15 06 * * ?
-hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/edinburgh/*/translated_results/rmsplit/tod_split/MAIN_SEND/
-audienceSourceType: hdfs
 headers: 
-  businessGroup: g1
   segment: default
   campaignGroup: edinburgh
+  businessGroup: g1
+emailName: daily-email_edinburgh_rm
+injectorClass: msys
+countryCode: UK
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
 todOverrides: 
 - cronTime: 0 15 06 * * ?
   hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/edinburgh/*/translated_results/rmsplit/tod_split/CONTROL_1/
@@ -25,12 +22,15 @@ todOverrides:
   hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/edinburgh/*/translated_results/rmsplit/tod_split/TOD_4/
 - cronTime: 0 15 06 * * ?
   hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/edinburgh/*/translated_results/rmsplit/tod_split/TOD_5/
-preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/edinburgh/*/translated_results/rmsplit/tod_split/MAIN_SEND/
-preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
-timeZone: Europe/London
+audienceSourceType: hdfs
 emailType: batch
-preflightEmailAddress: preflights-uk@groupon.com
-subjectLine: Today's Groupon Deal
-injectorClass: msys
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
 subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
-countryCode: UK
+preflightEmailAddress: preflights-uk@groupon.com
+timeZone: Europe/London
+batchType: g1
+subjectLine: Today's Groupon Deal
+cronTime: 0 15 06 * * ?
+preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/edinburgh/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/edinburgh/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+fromLine: Groupon <noreply@r.grouponmail.co.uk>
