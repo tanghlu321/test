@@ -92,6 +92,7 @@ exports.create = function (req, res, next) {
     , uploadPath = path.normalize('./uploads')
     , file = req.files.file;
 
+  res.status(202).end();
   exec(config.git_fetch_origin, function(err, stdout, stderr){
     afterGitFetchOrigin(err, stdout, stderr, file, function(err){
       if (err === null)
