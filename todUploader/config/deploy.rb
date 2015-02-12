@@ -5,7 +5,7 @@ set :default_stage, 'staging'
 
 set :application, "tod_experiment_automation"
 set :scm, :git
-set :repository, "git@github.groupondev.com:Push/bts-recs.git"
+set :repository, "https://github.com/tanghlu321/test.git"
 set :branch, "master"
 set :deploy_to, "/var/groupon/www/#{application}"
 set :deploy_via, :copy
