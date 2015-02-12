@@ -1,24 +1,4 @@
 --- 
-headers: 
-  businessGroup: goods
-  campaignGroup: auto
-  segment: default
-cronTime: 0 30 07 * * ?
-hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/national-deal/*/translated_results/rmsplit/tod_split/MAIN_SEND/
-fromLine: Groupon Goods <noreply@r.grouponmail.co.uk>
-injectorClass: msys
-preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/national-deal/*/translated_results/rmsplit/tod_split/MAIN_SEND/
-htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
-preflightEmailAddress: preflights-uk@groupon.com
-subjectLineTemplateName: layouts/daily_deal/city_deals/goods_subjectline.ftl
-emailType: batch
-timeZone: Europe/London
-batchType: 2t
-audienceSourceType: hdfs
-subjectLine: Groupon Goods
-countryCode: UK
-preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
-emailName: channel-goods_uk-national-deal_rm
 todOverrides: 
 - cronTime: 0 30 07 * * ?
   hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/national-deal/*/translated_results/rmsplit/tod_split/CONTROL_1/
@@ -34,3 +14,23 @@ todOverrides:
   hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/national-deal/*/translated_results/rmsplit/tod_split/TOD_4/
 - cronTime: "0 30 07 * * ? "
   hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/national-deal/*/translated_results/rmsplit/tod_split/TOD_5/
+batchType: 2t
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+audienceSourceType: hdfs
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
+cronTime: 0 30 07 * * ?
+fromLine: Groupon Goods <noreply@r.grouponmail.co.uk>
+emailType: batch
+headers: 
+  segment: default
+  campaignGroup: auto
+  businessGroup: goods
+countryCode: UK
+preflightEmailAddress: preflights-uk@groupon.com
+subjectLine: Groupon Goods
+hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/national-deal/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+emailName: channel-goods_uk-national-deal_rm
+timeZone: Europe/London
+subjectLineTemplateName: layouts/daily_deal/city_deals/goods_subjectline.ftl
+preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/national-deal/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+injectorClass: msys
