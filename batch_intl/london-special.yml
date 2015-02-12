@@ -1,12 +1,5 @@
 --- 
-headers: 
-  segment: default
-  campaignGroup: london-special
-  businessGroup: local special
-emailName: daily-email_london-special_rm
-injectorClass: msys
-countryCode: UK
-preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
 todOverrides: 
 - cronTime: 0 30 08 * * ?
   hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/london-special/*/translated_results/rmsplit/tod_split/CONTROL_1/
@@ -22,15 +15,22 @@ todOverrides:
   hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/london-special/*/translated_results/rmsplit/tod_split/TOD_4/
 - cronTime: 0 30 08 * * ?
   hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/london-special/*/translated_results/rmsplit/tod_split/TOD_5/
-audienceSourceType: hdfs
-emailType: batch
-htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
 subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
-preflightEmailAddress: preflights-uk@groupon.com
-timeZone: Europe/London
-batchType: 2t
-subjectLine: Today's Groupon Deal
-cronTime: 0 30 08 * * ?
+countryCode: UK
 preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/london-special/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+cronTime: 0 30 08 * * ?
 hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/london-special/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
 fromLine: Groupon <noreply@r.grouponmail.co.uk>
+batchType: 2t
+timeZone: Europe/London
+headers: 
+  campaignGroup: london-special
+  segment: default
+  businessGroup: local special
+preflightEmailAddress: preflights-uk@groupon.com
+subjectLine: Today's Groupon Deal
+emailType: batch
+audienceSourceType: hdfs
+injectorClass: msys
+emailName: daily-email_london-special_rm

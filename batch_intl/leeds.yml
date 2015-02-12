@@ -1,12 +1,5 @@
 --- 
-headers: 
-  segment: default
-  campaignGroup: leeds
-  businessGroup: g1
-emailName: daily-email_leeds_rm
-injectorClass: msys
-countryCode: UK
-preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
 todOverrides: 
 - cronTime: 0 00 07 * * ?
   hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/leeds/*/translated_results/rmsplit/tod_split/CONTROL_1/
@@ -22,15 +15,22 @@ todOverrides:
   hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/leeds/*/translated_results/rmsplit/tod_split/TOD_4/
 - cronTime: 0 00 07 * * ?
   hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/leeds/*/translated_results/rmsplit/tod_split/TOD_5/
-audienceSourceType: hdfs
-emailType: batch
-htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
 subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
-preflightEmailAddress: preflights-uk@groupon.com
-timeZone: Europe/London
-batchType: g1
-subjectLine: Today's Groupon Deal
-cronTime: 0 00 07 * * ?
+countryCode: UK
 preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/leeds/*/translated_results/rmsplit/tod_split/PREFLIGHT/
+cronTime: 0 00 07 * * ?
 hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/leeds/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
 fromLine: Groupon <noreply@r.grouponmail.co.uk>
+batchType: g1
+timeZone: Europe/London
+headers: 
+  campaignGroup: leeds
+  segment: default
+  businessGroup: g1
+preflightEmailAddress: preflights-uk@groupon.com
+subjectLine: Today's Groupon Deal
+emailType: batch
+audienceSourceType: hdfs
+injectorClass: msys
+emailName: daily-email_leeds_rm
