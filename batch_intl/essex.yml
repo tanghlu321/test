@@ -1,12 +1,10 @@
 --- 
-preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
-subjectLine: Today's Groupon Deal
-timeZone: Europe/London
-fromLine: Groupon <noreply@r.grouponmail.co.uk>
-batchType: g1
+audienceSourceType: hdfs
 injectorClass: msys
-preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/essex/*/translated_results/rmsplit/tod_split/MAIN_SEND/
 subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
+fromLine: Groupon <noreply@r.grouponmail.co.uk>
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
+countryCode: UK
 todOverrides: 
 - cronTime: 0 30 06 * * ?
   hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/essex/*/translated_results/rmsplit/tod_split/CONTROL_1/
@@ -22,15 +20,17 @@ todOverrides:
   hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/essex/*/translated_results/rmsplit/tod_split/TOD_4/
 - cronTime: 0 30 06 * * ?
   hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/essex/*/translated_results/rmsplit/tod_split/TOD_5/
-htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
-headers: 
-  campaignGroup: essex
-  businessGroup: g1
-  segment: default
-cronTime: 0 30 06 * * ?
-emailName: daily-email_essex_rm
-audienceSourceType: hdfs
-countryCode: UK
-preflightEmailAddress: preflights-uk@groupon.com
-hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/essex/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+subjectLine: Today's Groupon Deal
 emailType: batch
+preflightEmailAddress: preflights-uk@groupon.com
+emailName: daily-email_essex_rm
+cronTime: 0 30 06 * * ?
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+headers: 
+  businessGroup: g1
+  campaignGroup: essex
+  segment: default
+preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/essex/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/essex/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+batchType: g1
+timeZone: Europe/London
