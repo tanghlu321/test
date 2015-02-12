@@ -1,36 +1,36 @@
 --- 
-countryCode: UK
-preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
-hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/portsmouth/*/translated_results/rmsplit/tod_split/MAIN_SEND/
-batchType: g1
-todOverrides: 
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/portsmouth/*/translated_results/rmsplit/tod_split/CONTROL_1/
-  cronTime: 0 30 06 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/portsmouth/*/translated_results/rmsplit/tod_split/CONTROL_2/
-  cronTime: 0 30 06 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/portsmouth/*/translated_results/rmsplit/tod_split/TOD_1/
-  cronTime: 0 30 03 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/portsmouth/*/translated_results/rmsplit/tod_split/TOD_2/
-  cronTime: 0 30 06 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/portsmouth/*/translated_results/rmsplit/tod_split/TOD_3/
-  cronTime: 0 30 08 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/portsmouth/*/translated_results/rmsplit/tod_split/TOD_4/
-  cronTime: 0 30 06 * * ?
-- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/portsmouth/*/translated_results/rmsplit/tod_split/TOD_5/
-  cronTime: 0 30 06 * * ?
-preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/portsmouth/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+subjectLine: Today's Groupon Deal
+cronTime: 0 30 06 * * ?
+fromLine: Groupon <noreply@r.grouponmail.co.uk>
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
 subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
+audienceSourceType: hdfs
 timeZone: Europe/London
+batchType: g1
+hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/portsmouth/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+emailType: batch
+emailName: daily-email_portsmouth_rm
+injectorClass: msys
 headers: 
   campaignGroup: portsmouth
   businessGroup: g1
   segment: default
-htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
-injectorClass: msys
-fromLine: Groupon <noreply@r.grouponmail.co.uk>
-cronTime: 0 30 06 * * ?
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+todOverrides: 
+- cronTime: 0 30 06 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/portsmouth/*/translated_results/rmsplit/tod_split/CONTROL_1/
+- cronTime: 0 30 06 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/portsmouth/*/translated_results/rmsplit/tod_split/CONTROL_2/
+- cronTime: 0 30 03 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/portsmouth/*/translated_results/rmsplit/tod_split/TOD_1/
+- cronTime: 0 30 06 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/portsmouth/*/translated_results/rmsplit/tod_split/TOD_2/
+- cronTime: 0 30 08 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/portsmouth/*/translated_results/rmsplit/tod_split/TOD_3/
+- cronTime: 0 30 06 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/portsmouth/*/translated_results/rmsplit/tod_split/TOD_4/
+- cronTime: 0 30 06 * * ?
+  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/portsmouth/*/translated_results/rmsplit/tod_split/TOD_5/
+countryCode: UK
 preflightEmailAddress: preflights-uk@groupon.com
-subjectLine: Today's Groupon Deal
-emailName: daily-email_portsmouth_rm
-audienceSourceType: hdfs
-emailType: batch
+preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/portsmouth/*/translated_results/rmsplit/tod_split/MAIN_SEND/
