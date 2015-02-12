@@ -21,10 +21,10 @@ angular.module('todUploaderApp')
         }).progress(function(evt) {
           console.log('progress: ' + parseInt(100.0 * evt.loaded / evt.total) + '% file :'+ evt.config.file.name);
         }).success(function(data, status, headers, config) {
-          if (status === 200) {
+          if (status == 200) {
             $scope.message = "Success! Please check the updates on Github for safety";
           }
-          else if (status === 202){
+          else if (status == 202){
             $scope.message = "Processing";
           }
         }).error(function(data, status, headers, config){
