@@ -1,36 +1,36 @@
 --- 
-cronTime: 0 30 06 * * ?
-emailType: batch
-preflightEmailAddress: preflights-uk@groupon.com
-emailName: daily-email_exeter_rm
-timeZone: Europe/London
-fromLine: Groupon <noreply@r.grouponmail.co.uk>
+countryCode: UK
+injectorClass: msys
+subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
 subjectLine: Today's Groupon Deal
-htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
+preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/exeter/*/translated_results/rmsplit/tod_split/MAIN_SEND/
 preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+batchType: g1
 headers: 
   segment: default
-  businessGroup: g1
   campaignGroup: exeter
-subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
-injectorClass: msys
+  businessGroup: g1
+timeZone: Europe/London
 hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/exeter/*/translated_results/rmsplit/tod_split/MAIN_SEND/
 audienceSourceType: hdfs
-batchType: g1
-preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/exeter/*/translated_results/rmsplit/tod_split/MAIN_SEND/
-countryCode: UK
+preflightEmailAddress: preflights-uk@groupon.com
 todOverrides: 
-- cronTime: 0 30 06 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/exeter/*/translated_results/rmsplit/tod_split/CONTROL_1/
-- cronTime: 0 30 06 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/exeter/*/translated_results/rmsplit/tod_split/CONTROL_2/
-- cronTime: 0 30 03 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/exeter/*/translated_results/rmsplit/tod_split/TOD_1/
-- cronTime: 0 30 06 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/exeter/*/translated_results/rmsplit/tod_split/TOD_2/
-- cronTime: 0 30 08 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/exeter/*/translated_results/rmsplit/tod_split/TOD_3/
-- cronTime: 0 30 06 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/exeter/*/translated_results/rmsplit/tod_split/TOD_4/
-- cronTime: 0 30 06 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/exeter/*/translated_results/rmsplit/tod_split/TOD_5/
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/exeter/*/translated_results/rmsplit/tod_split/CONTROL_1/
+  cronTime: 0 30 06 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/exeter/*/translated_results/rmsplit/tod_split/CONTROL_2/
+  cronTime: 0 30 06 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/exeter/*/translated_results/rmsplit/tod_split/TOD_1/
+  cronTime: 0 30 03 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/exeter/*/translated_results/rmsplit/tod_split/TOD_2/
+  cronTime: 0 30 06 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/exeter/*/translated_results/rmsplit/tod_split/TOD_3/
+  cronTime: 0 30 08 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/exeter/*/translated_results/rmsplit/tod_split/TOD_4/
+  cronTime: 0 30 06 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/exeter/*/translated_results/rmsplit/tod_split/TOD_5/
+  cronTime: 0 30 06 * * ?
+cronTime: 0 30 06 * * ?
+fromLine: Groupon <noreply@r.grouponmail.co.uk>
+emailName: daily-email_exeter_rm
+emailType: batch
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
