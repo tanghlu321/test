@@ -9,7 +9,7 @@ if ARGV.length < 1
   exit 1
 end
 
-return
+exit
 
 tod_hdfs_path = "hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/##countryCode##/calcs/%%date%%/##permalink##/*/translated_results/rmsplit/tod_split/##tod##"
 tod_string = "##tod##"
