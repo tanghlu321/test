@@ -1,21 +1,24 @@
 --- 
-subjectLine: Today's Groupon Deal
 cronTime: 0 45 06 * * ?
-fromLine: Groupon <noreply@r.grouponmail.co.uk>
-htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
-subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
-audienceSourceType: hdfs
-timeZone: Europe/London
-batchType: g1
-hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/maidstone/*/translated_results/rmsplit/tod_split/MAIN_SEND/
 emailType: batch
+preflightEmailAddress: preflights-uk@groupon.com
 emailName: daily-email_maidstone_rm
-injectorClass: msys
-headers: 
-  campaignGroup: maidstone
-  businessGroup: g1
-  segment: default
+timeZone: Europe/London
+fromLine: Groupon <noreply@r.grouponmail.co.uk>
+subjectLine: Today's Groupon Deal
+htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
 preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+headers: 
+  segment: default
+  businessGroup: g1
+  campaignGroup: maidstone
+subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
+injectorClass: msys
+hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/maidstone/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+audienceSourceType: hdfs
+batchType: g1
+preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/maidstone/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+countryCode: UK
 todOverrides: 
 - cronTime: 0 45 06 * * ?
   hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/maidstone/*/translated_results/rmsplit/tod_split/CONTROL_1/
@@ -31,6 +34,3 @@ todOverrides:
   hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/maidstone/*/translated_results/rmsplit/tod_split/TOD_4/
 - cronTime: 0 45 06 * * ?
   hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/maidstone/*/translated_results/rmsplit/tod_split/TOD_5/
-countryCode: UK
-preflightEmailAddress: preflights-uk@groupon.com
-preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/maidstone/*/translated_results/rmsplit/tod_split/MAIN_SEND/
