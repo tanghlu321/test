@@ -92,11 +92,11 @@ exports.create = function (req, res, next) {
     , uploadPath = path.normalize('./uploads')
     , file = req.files.file;
 
-  res.status(202).end();
+  //res.status(202).end();
   exec(config.git_fetch_origin, function(err, stdout, stderr){
     afterGitFetchOrigin(err, stdout, stderr, file, function(err){
       if (err === null)
-        res.status(200).end();
+        res.status(200).send({Github url: config.git_url});
       else
         res.status(500).send({Error: err.message});
     });
