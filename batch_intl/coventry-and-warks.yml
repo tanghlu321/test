@@ -1,36 +1,36 @@
 --- 
-subjectLine: Today's Groupon Deal
-preflightEmailAddress: preflights-uk@groupon.com
-countryCode: UK
-injectorClass: msys
-batchType: g1
-emailName: daily-email_coventry-and-warks_rm
-cronTime: 0 45 06 * * ?
+audienceSourceType: hdfs
+hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/coventry-and-warks/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+timeZone: Europe/London
 htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
 fromLine: Groupon <noreply@r.grouponmail.co.uk>
-preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/coventry-and-warks/*/translated_results/rmsplit/tod_split/MAIN_SEND/
-subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
-todOverrides: 
-- cronTime: 0 45 06 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/coventry-and-warks/*/translated_results/rmsplit/tod_split/CONTROL_1/
-- cronTime: 0 45 06 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/coventry-and-warks/*/translated_results/rmsplit/tod_split/CONTROL_2/
-- cronTime: 0 30 03 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/coventry-and-warks/*/translated_results/rmsplit/tod_split/TOD_1/
-- cronTime: 0 30 06 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/coventry-and-warks/*/translated_results/rmsplit/tod_split/TOD_2/
-- cronTime: 0 30 08 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/coventry-and-warks/*/translated_results/rmsplit/tod_split/TOD_3/
-- cronTime: 0 45 06 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/coventry-and-warks/*/translated_results/rmsplit/tod_split/TOD_4/
-- cronTime: 0 45 06 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/coventry-and-warks/*/translated_results/rmsplit/tod_split/TOD_5/
-audienceSourceType: hdfs
-timeZone: Europe/London
-preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
-headers: 
-  segment: default
-  businessGroup: g1
-  campaignGroup: coventry-and-warks
+preflightEmailAddress: preflights-uk@groupon.com
 emailType: batch
-hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/coventry-and-warks/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
+batchType: g1
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+cronTime: 0 45 06 * * ?
+headers: 
+  campaignGroup: coventry-and-warks
+  businessGroup: g1
+  segment: default
+todOverrides: 
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/coventry-and-warks/*/translated_results/rmsplit/tod_split/CONTROL_1/
+  cronTime: 0 45 06 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/coventry-and-warks/*/translated_results/rmsplit/tod_split/CONTROL_2/
+  cronTime: 0 45 06 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/coventry-and-warks/*/translated_results/rmsplit/tod_split/TOD_1/
+  cronTime: 0 30 03 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/coventry-and-warks/*/translated_results/rmsplit/tod_split/TOD_2/
+  cronTime: 0 30 06 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/coventry-and-warks/*/translated_results/rmsplit/tod_split/TOD_3/
+  cronTime: 0 30 08 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/coventry-and-warks/*/translated_results/rmsplit/tod_split/TOD_4/
+  cronTime: 0 45 06 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/coventry-and-warks/*/translated_results/rmsplit/tod_split/TOD_5/
+  cronTime: 0 45 06 * * ?
+preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/coventry-and-warks/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+emailName: daily-email_coventry-and-warks_rm
+injectorClass: msys
+countryCode: UK
+subjectLine: Today's Groupon Deal
