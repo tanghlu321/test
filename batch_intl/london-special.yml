@@ -1,36 +1,36 @@
----
+--- 
+headers: 
+  segment: default
+  businessGroup: local special
+  campaignGroup: london-special
+subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
+preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
+batchType: 2t
 emailName: daily-email_london-special_rm
 htmlTemplateName: layouts/daily_deal/city_deals/daily_deals.ftl
 injectorClass: msys
-emailType: batch
-subjectLine: Today's Groupon Deal
-subjectLineTemplateName: layouts/daily_deal/city_deals/daily_deals_subjectline.ftl
-preflightJsonFile: layouts/daily_deal/city_deals/daily_deals_preflight.json
-cronTime: 0 30 08 * * ?
-preflightEmailAddress: preflights-uk@groupon.com
-audienceSourceType: hdfs
+todOverrides: 
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/london-special/*/translated_results/rmsplit/tod_split/CONTROL_1/
+  cronTime: 0 30 08 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/london-special/*/translated_results/rmsplit/tod_split/CONTROL_2/
+  cronTime: 0 30 08 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/london-special/*/translated_results/rmsplit/tod_split/TOD_1/
+  cronTime: 0 30 11 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/london-special/*/translated_results/rmsplit/tod_split/TOD_2/
+  cronTime: 0 30 15 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/london-special/*/translated_results/rmsplit/tod_split/TOD_3/
+  cronTime: 0 30 12 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/london-special/*/translated_results/rmsplit/tod_split/TOD_4/
+  cronTime: 0 30 08 * * ?
+- hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/london-special/*/translated_results/rmsplit/tod_split/TOD_5/
+  cronTime: 0 30 08 * * ?
 hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/london-special/*/translated_results/rmsplit/tod_split/MAIN_SEND/
-preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/london-special/*/translated_results/rmsplit/tod_split/MAIN_SEND/
-batchType: 2t
-fromLine: Groupon <noreply@r.grouponmail.co.uk>
+emailType: batch
 countryCode: UK
+preflightEmailAddress: preflights-uk@groupon.com
+preflightPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/london-special/*/translated_results/rmsplit/tod_split/MAIN_SEND/
+fromLine: Groupon <noreply@r.grouponmail.co.uk>
+subjectLine: Today's Groupon Deal
+cronTime: 0 30 08 * * ?
+audienceSourceType: hdfs
 timeZone: Europe/London
-headers:
-  businessGroup: local special
-  campaignGroup: london-special
-  segment: default
-todOverrides:
-- cronTime: 0 30 08 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/london-special/*/translated_results/rmsplit/tod_split/CONTROL_1/
-- cronTime: 0 30 08 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/london-special/*/translated_results/rmsplit/tod_split/CONTROL_2/
-- cronTime: 0 30 11 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/london-special/*/translated_results/rmsplit/tod_split/TOD_1/
-- cronTime: 0 30 15 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/london-special/*/translated_results/rmsplit/tod_split/TOD_2/
-- cronTime: 0 30 12 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/london-special/*/translated_results/rmsplit/tod_split/TOD_3/
-- cronTime: 0 30 08 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/london-special/*/translated_results/rmsplit/tod_split/TOD_4/
-- cronTime: 0 30 08 * * ?
-  hdfsPath: hdfs://smartdeals-cdh4-hadoop-namenode-lup1.lup1/data/smartdeals/prod/gb/calcs/%%date%%/london-special/*/translated_results/rmsplit/tod_split/TOD_5/
