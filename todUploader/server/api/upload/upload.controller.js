@@ -2,10 +2,10 @@
 
 var path = require('path');
 var _ = require('lodash');
+var config = require('../../config/environment');
 
 var exec = require("child_process").exec;
 
-// Get list of uploads
 exports.index = function(req, res) {
   res.json([]);
 };
@@ -32,8 +32,8 @@ var afterExecRuby = function(err, stdout, stderr, callback){
     return callback(err);
   }
   var yml = '\.yml$';
-  //exec('cd /Users/kaiwang/Projects/test/ && git ls-files /Users/kaiwang/Projects/test/batch_intl | grep yml | xargs git add', function(err, stdout, stderr){
-    exec('cd /Users/kaiwang/Projects/test/ && git add .', function(err, stdout, stderr){
+    exec('cd /Users/kaiwang/Projects/test/ && git ls-files /Users/kaiwang/Projects/test/batch_intl | grep yml | xargs git add', function(err, stdout, stderr){
+    //exec('cd /Users/kaiwang/Projects/test/ && git add .', function(err, stdout, stderr){
     afterGitAdd(err, stdout, stderr, callback);
   });
 }
@@ -76,11 +76,14 @@ exports.create = function (req, res, next) {
     , file = req.files.file;
 
   //add git reset to origin master
-  exec('cd /Users/kaiwang/Projects/test/ && git pull origin dev/improve', function(err, stdout, stderr){
+  //git fetch origin
+  //git reset --hard origin/master
+  var local_path = config.path;
+  console.log(config.path);
+  exec('cd local_path && git pull origin dev/improve', function(err, stdout, stderr){
     afterPullMaster(err, stdout, stderr, file, function(err){
       if (err === null)
         res.status(200).end();
-      //add the sha
       else
         res.status(500).send({Error: err.message});
     });

@@ -1,12 +1,10 @@
 'use strict';
 
-// Development specific configuration
-// ==================================
 module.exports = {
 	
-  giturl: "git@github.groupondev.com:Push/tod_automation_test_tempory.git",
-
-  // Server port
+  git_url: "https://github.com/tanghlu321/test.git",
+  git_branch: "dev/improve",
+  path: "/Users/kaiwang/Projects/test/",
   port:     process.env.OPENSHIFT_NODEJS_PORT ||
             process.env.PORT ||
             9000
